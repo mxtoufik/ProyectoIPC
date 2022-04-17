@@ -36,7 +36,7 @@ public class loginControlador implements Initializable {
 
     @FXML
     private void pulsadoIniciar(ActionEvent event) {
-        System.out.println("qal");
+        System.out.println("adios");
     }
 
 }
