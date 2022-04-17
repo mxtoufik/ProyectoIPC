@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.estadisticasControlador">
+   <children>
+      <VBox alignment="CENTER" prefHeight="302.0" prefWidth="507.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="487.0">
+               <children>
+                  <Button mnemonicParsing="false" text="←" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="54.0" prefWidth="487.0" spacing="20.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Desde" />
+                  <DatePicker />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hasta" />
+                  <DatePicker />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="66.0" prefWidth="474.0" spacing="50.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aciertos" wrappingWidth="43.826171875" />
+                  <ProgressBar prefWidth="200.0" progress="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="117.0" prefWidth="452.0" spacing="50.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fallos" wrappingWidth="43.900390625" />
+                  <ProgressBar prefWidth="200.0" progress="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
