@@ -19,13 +19,15 @@ public class Aplicacion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/login.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/opciones.fxml"));
         Parent root = loader.load();
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
+        //stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
         stage.show();
     }
 

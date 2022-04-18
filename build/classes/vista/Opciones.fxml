@@ -14,30 +14,30 @@
          <children>
             <HBox alignment="CENTER" prefHeight="262.0" prefWidth="177.0">
                <children>
-                  <ImageView fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="fotoUsuario" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@recursos_entrega/avatars/default.png" />
+                        <Image url="@../resources/avatars/default.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="163.0" prefWidth="177.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+                  <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
                </children>
             </HBox>
          </children>
       </VBox>
       <VBox alignment="CENTER" prefHeight="302.0" prefWidth="219.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" text="Modificar Perfil" />
-            <Button mnemonicParsing="false" text="Ver estadísticas" />
-            <Button mnemonicParsing="false" text="Cerrar sesión" />
+            <Button mnemonicParsing="false" onAction="#btnModificar" text="Modificar Perfil" />
+            <Button mnemonicParsing="false" onAction="#btnEstadisticas" text="Ver estadísticas" />
+            <Button mnemonicParsing="false" onAction="#btnCerrarSesion" text="Cerrar sesión" />
          </children>
       </VBox>
       <VBox alignment="TOP_RIGHT" prefHeight="302.0" prefWidth="112.0">
          <children>
-            <Button mnemonicParsing="false" text="X" />
+            <Button mnemonicParsing="false" onAction="#btnCerrarVentana" text="X" />
          </children>
          <HBox.margin>
             <Insets right="15.0" top="15.0" />
