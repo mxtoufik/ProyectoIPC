@@ -45,19 +45,19 @@
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="40.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo" />
+                  <Text fx:id="usuarioNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo" />
                </children>
             </HBox>
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="59.111328125" />
-                  <TextField />
+                  <TextField fx:id="usuarioCorreo" />
                </children>
             </HBox>
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="59.859375" />
-                  <TextField />
+                  <TextField fx:id="usuarioNuevaContraseña" />
                </children>
             </HBox>
          </children>

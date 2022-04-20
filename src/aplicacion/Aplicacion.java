@@ -27,6 +27,7 @@ public class Aplicacion extends Application {
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
         //stage.initModality(Modality.APPLICATION_MODAL);
+        
         stage.setResizable(false);
         stage.show();
     }
