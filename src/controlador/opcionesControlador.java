@@ -38,9 +38,9 @@ import model.User;
 public class opcionesControlador implements Initializable {
 
     @FXML
-    private ImageView fotoUsuario;
-    @FXML
     private Text nombreUsuario;
+    @FXML
+    private ImageView usuarioAvatar;
 
     /**
      * Initializes the controller class.
@@ -48,16 +48,17 @@ public class opcionesControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            String nombre = "Mohammed";
+            /*String nombre = "Mohammed";
             String email = "tangertoufik@gmail.com";
             String contraseña = "1234";
             LocalDate birthdate = LocalDate.now().minusYears(18);
-            
+            */
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.registerUser(nombre, email, contraseña, birthdate);
+            User admin = base.loginUser("Mohammed", "1234");
             
             
             nombreUsuario.setText(admin.getNickName());
+            usuarioAvatar.setImage(admin.getAvatar());
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -91,12 +92,14 @@ public class opcionesControlador implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("ver estadísticas del Usuario");
+            stage.setTitle("Ver estadísticas del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
+            
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
-            
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
         } catch (IOException e) {

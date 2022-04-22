@@ -15,7 +15,7 @@
          <children>
             <HBox alignment="BOTTOM_CENTER" prefHeight="215.0" prefWidth="178.0">
                <children>
-                  <ImageView fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos_entrega/avatars/default.png" />
                      </image>
@@ -51,13 +51,13 @@
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="59.111328125" />
-                  <TextField fx:id="usuarioCorreo" />
+                  <TextField fx:id="usuarioCorreo" promptText="Inserte nuevo correo" />
                </children>
             </HBox>
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="59.859375" />
-                  <TextField fx:id="usuarioNuevaContraseña" />
+                  <TextField fx:id="usuarioNuevaContraseña" promptText="Inserte nueva contraseña" />
                </children>
             </HBox>
          </children>

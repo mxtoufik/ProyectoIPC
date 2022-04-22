@@ -5,12 +5,18 @@
  */
 package aplicacion;
 
+import DBAccess.NavegacionDAOException;
+import controlador.opcionesControlador;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Navegacion;
+import model.User;
 
 /**
  *
@@ -31,6 +37,21 @@ public class Aplicacion extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.show();
+        
+        try {
+            /*String nombre = "Mohammed";
+            String email = "tangertoufik@gmail.com";
+            String contraseña = "1234";
+            LocalDate birthdate = LocalDate.now().minusYears(18);
+            */
+            Navegacion base = Navegacion.getSingletonNavegacion();
+            User admin = base.loginUser("Mohammed", "1234");
+            
+            
+            
+        } catch (NavegacionDAOException ex) {
+            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

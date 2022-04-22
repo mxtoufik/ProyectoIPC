@@ -5,9 +5,12 @@
  */
 package controlador;
 
+import DBAccess.NavegacionDAOException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +20,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Navegacion;
+import model.User;
 
 /**
  * FXML Controller class
@@ -35,13 +41,30 @@ public class editarPerfilControlador implements Initializable {
     private TextField usuarioCorreo;
     @FXML
     private TextField usuarioNuevaContraseña;
+    @FXML
+    private ImageView usuarioAvatar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            /*String nombre = "Mohammed";
+            String email = "tangertoufik@gmail.com";
+            String contraseña = "1234";
+            LocalDate birthdate = LocalDate.now().minusYears(18);
+            */
+            Navegacion base = Navegacion.getSingletonNavegacion();
+            User admin = base.loginUser("Mohammed", "1234");
+            
+            
+            usuarioNombre.setText(admin.getNickName());
+            usuarioCorreo.setText(admin.getEmail());
+            usuarioAvatar.setImage(admin.getAvatar());
+        } catch (NavegacionDAOException ex) {
+            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
