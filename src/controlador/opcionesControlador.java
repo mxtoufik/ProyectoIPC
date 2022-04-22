@@ -47,17 +47,20 @@ public class opcionesControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String nombre = "Mohammed";
-        String email = "tangertoufik@gmail.com";
-        String contraseña = "1234";
-        LocalDate birthdate = LocalDate.now().minusYears(18);
         try {
+            String nombre = "Mohammed";
+            String email = "tangertoufik@gmail.com";
+            String contraseña = "1234";
+            LocalDate birthdate = LocalDate.now().minusYears(18);
+            
             Navegacion base = Navegacion.getSingletonNavegacion();
             User admin = base.registerUser(nombre, email, contraseña, birthdate);
+            
+            
+            nombreUsuario.setText(admin.getNickName());
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     @FXML
