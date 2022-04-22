@@ -51,13 +51,13 @@
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="59.111328125" />
-                  <TextField fx:id="usuarioCorreo" promptText="Inserte nuevo correo" />
+                  <TextField fx:id="usuarioCorreo" />
                </children>
             </HBox>
             <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="59.859375" />
-                  <TextField fx:id="usuarioNuevaContraseña" promptText="Inserte nueva contraseña" />
+                  <TextField fx:id="usuarioNuevaContraseña" />
                </children>
             </HBox>
          </children>
