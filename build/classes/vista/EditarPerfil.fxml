@@ -27,7 +27,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" text="Cambiar Foto" />
+                  <Button mnemonicParsing="false" onAction="#btnCambiarFoto" text="Cambiar Foto" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -69,12 +69,12 @@
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="←" />
+                  <Button mnemonicParsing="false" onAction="#btnAtras" text="←" />
                </children>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="166.0" prefWidth="71.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#btnGuardar" prefHeight="25.0" prefWidth="79.0" text="Guardar" />
                </children>
             </HBox>
          </children>

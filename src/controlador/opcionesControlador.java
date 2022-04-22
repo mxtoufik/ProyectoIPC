@@ -5,10 +5,14 @@
  */
 package controlador;
 
+import DBAccess.NavegacionDAOException;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +25,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JFrame;
+import model.Navegacion;
+import model.User;
 
 /**
  * FXML Controller class
@@ -40,24 +47,36 @@ public class opcionesControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        String nombre = "Mohammed";
+        String email = "tangertoufik@gmail.com";
+        String contraseña = "1234";
+        LocalDate birthdate = LocalDate.now().minusYears(18);
+        try {
+            Navegacion base = Navegacion.getSingletonNavegacion();
+            User admin = base.registerUser(nombre, email, contraseña, birthdate);
+        } catch (NavegacionDAOException ex) {
+            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     @FXML
     private void btnModificar(ActionEvent event) {
         try {
-            
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/EditarPerfil.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Editar Perfil del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
+            
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
-            
-            
-            
+            Node node = (Node) event.getSource();
+            node.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,7 +85,7 @@ public class opcionesControlador implements Initializable {
     @FXML
     private void btnEstadisticas(ActionEvent event) {
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("ver estadísticas del Usuario");
@@ -74,20 +93,26 @@ public class opcionesControlador implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.show();
-        }
-        catch (IOException e) {
+            
+            Node node = (Node) event.getSource();
+            node.getScene().getWindow().hide();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         
+
     }
 
     @FXML
     private void btnCerrarSesion(ActionEvent event) {
-        
+
     }
 
     @FXML
     private void btnCerrarVentana(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 }

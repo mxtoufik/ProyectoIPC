@@ -7,7 +7,11 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ProgressBar;
 
 /**
  * FXML Controller class
@@ -16,6 +20,15 @@ import javafx.fxml.Initializable;
  */
 public class estadisticasControlador implements Initializable {
 
+    @FXML
+    private DatePicker fechaInicio;
+    @FXML
+    private DatePicker fechaFinal;
+    @FXML
+    private ProgressBar aciertos;
+    @FXML
+    private ProgressBar fallos;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +36,9 @@ public class estadisticasControlador implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void btnAtras(ActionEvent event) {
+    }
     
 }

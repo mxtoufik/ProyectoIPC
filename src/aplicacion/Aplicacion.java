@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Aplicacion extends Application {
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
         //stage.initModality(Modality.APPLICATION_MODAL);
-        
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.show();
     }
