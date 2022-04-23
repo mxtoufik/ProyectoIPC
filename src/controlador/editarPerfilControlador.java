@@ -43,20 +43,17 @@ public class editarPerfilControlador implements Initializable {
     private TextField usuarioNuevaContraseña;
     @FXML
     private ImageView usuarioAvatar;
-
+    
+    public User admin;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            /*String nombre = "Mohammed";
-            String email = "tangertoufik@gmail.com";
-            String contraseña = "1234";
-            LocalDate birthdate = LocalDate.now().minusYears(18);
-            */
+            
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "1234");
+            admin = base.loginUser("Mohammed", "1234");
             
             
             usuarioNombre.setText(admin.getNickName());
@@ -93,6 +90,25 @@ public class editarPerfilControlador implements Initializable {
 
     @FXML
     private void btnGuardar(ActionEvent event) {
+        String str = usuarioCorreo.getText();
+        try {
+            admin.setEmail(str);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("SAILAPP");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+            Node node = (Node) event.getSource();
+            node.getScene().getWindow().hide();
+        } catch (NavegacionDAOException ex) {
+            Logger.getLogger(editarPerfilControlador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(editarPerfilControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
