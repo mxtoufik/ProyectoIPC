@@ -77,7 +77,7 @@ public class opcionesControlador implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.initStyle(StageStyle.UTILITY);
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.DECORATED);
             stage.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
@@ -111,7 +111,7 @@ public class opcionesControlador implements Initializable {
 
     @FXML
     private void btnCerrarSesion(ActionEvent event) {
-
+        
     }
 
     @FXML

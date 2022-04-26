@@ -23,7 +23,7 @@ import model.User;
  * @author jsanchez
  */
 public class Aplicacion extends Application {
-    
+   // public static Navegacion base;
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/opciones.fxml"));
