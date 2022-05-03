@@ -19,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -45,6 +46,14 @@ public class editarPerfilControlador implements Initializable {
     private ImageView usuarioAvatar;
     
     public User admin;
+    @FXML
+    private Text correoIncorrecto;
+    @FXML
+    private PasswordField usuarioContraseña;
+    @FXML
+    private Text contrasenaIncorrecta;
+    @FXML
+    private Text repetirContrasenaIncorrecta;
     /**
      * Initializes the controller class.
      */

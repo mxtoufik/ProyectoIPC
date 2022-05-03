@@ -8,20 +8,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.opcionesControlador">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="507.0" styleClass="elborde" stylesheets="@../estilo/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.opcionesControlador">
    <children>
       <VBox alignment="CENTER" prefHeight="302.0" prefWidth="178.0">
          <children>
             <HBox alignment="CENTER" prefHeight="262.0" prefWidth="177.0">
                <children>
-                  <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" styleClass="bordefoto">
                      <image>
                         <Image url="@../resources/avatars/default.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" prefHeight="163.0" prefWidth="177.0">
+            <HBox alignment="TOP_CENTER" prefHeight="163.0" prefWidth="177.0" styleClass="text" stylesheets="@../estilo/menu.css">
                <children>
                   <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
                </children>

@@ -13,6 +13,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Navegacion;
@@ -30,12 +32,14 @@ public class Aplicacion extends Application {
         Parent root = loader.load();
         
         Scene scene = new Scene(root);
-        
+        scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
         //stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        //stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
+        stage.getIcons().add(new Image("resources/Icono.png"));
         stage.show();
         
         try {

@@ -21,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -56,7 +57,6 @@ public class opcionesControlador implements Initializable {
             Navegacion base = Navegacion.getSingletonNavegacion();
             User admin = base.loginUser("Mohammed", "1234");
             
-            
             nombreUsuario.setText(admin.getNickName());
             usuarioAvatar.setImage(admin.getAvatar());
         } catch (NavegacionDAOException ex) {
@@ -77,7 +77,7 @@ public class opcionesControlador implements Initializable {
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.initStyle(StageStyle.UTILITY);
-            stage.initStyle(StageStyle.DECORATED);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();

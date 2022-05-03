@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.editarPerfilControlador">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="507.0" styleClass="elborde" stylesheets="@../estilo/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.editarPerfilControlador">
    <children>
       <VBox alignment="CENTER" prefHeight="302.0" prefWidth="178.0">
          <children>
@@ -18,7 +18,7 @@
                <children>
                   <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@recursos_entrega/avatars/default.png" />
+                        <Image url="@../resources/avatars/default.png" />
                      </image>
                   </ImageView>
                </children>
@@ -57,7 +57,7 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
                <children>
-                  <Text fx:id="correoIncorrecto" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="correoIncorrecto" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
                </children>
             </HBox>
             <HBox prefHeight="30.0" prefWidth="213.0" spacing="30.0">
@@ -68,7 +68,7 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
                <children>
-                  <Text fx:id="contrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="contrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
                </children>
             </HBox>
             <HBox prefHeight="34.0" prefWidth="261.0" spacing="30.0">
@@ -79,7 +79,7 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
                <children>
-                  <Text fx:id="repetirContrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="repetirContrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" />
                </children>
             </HBox>
          </children>
