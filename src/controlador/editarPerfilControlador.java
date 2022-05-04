@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,6 +46,8 @@ public class editarPerfilControlador implements Initializable {
     @FXML
     private ImageView usuarioAvatar;
     
+    //static String str;
+    
     public User admin;
     @FXML
     private Text correoIncorrecto;
@@ -62,7 +65,7 @@ public class editarPerfilControlador implements Initializable {
         try {
             
             Navegacion base = Navegacion.getSingletonNavegacion();
-            admin = base.loginUser("Mohammed", "1234");
+            admin = base.loginUser("Mohammed", "123");
             
             
             usuarioNombre.setText(admin.getNickName());
@@ -79,12 +82,14 @@ public class editarPerfilControlador implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root1));
+            stage.setScene(scene);
             stage.setResizable(false);
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
@@ -97,24 +102,42 @@ public class editarPerfilControlador implements Initializable {
     private void btnCambiarFoto(ActionEvent event) {
     }
 
+    public String getCorreo(){
+        String str = usuarioCorreo.getText();
+        return str;
+    }
+    
     @FXML
     private void btnGuardar(ActionEvent event) {
-        String str = usuarioCorreo.getText();
+        //String str = usuarioCorreo.getText();
         try {
-            admin.setEmail(str);
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+            //admin.setEmail(str);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Seguro.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root1));
+            stage.setScene(scene);
             stage.setResizable(false);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.show();
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.showAndWait();
+            
+            
+            FXMLLoader elLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+            Parent root = (Parent) elLoader.load();
+            Scene scene2 = new Scene(root);
+            scene2.setFill(Color.TRANSPARENT);
+            Stage stage2 = new Stage();
+            stage2.setTitle("SAILAPP");
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.setScene(scene2);
+            stage2.setResizable(false);
+            stage2.initStyle(StageStyle.TRANSPARENT);
+            stage2.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(editarPerfilControlador.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(editarPerfilControlador.class.getName()).log(Level.SEVERE, null, ex);
         }

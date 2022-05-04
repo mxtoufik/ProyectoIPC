@@ -4,9 +4,21 @@
     -fx-text-fill: #70451B;
 }
 
+.elborde2{
+    -fx-background-color: #F56860;
+    -fx-background-radius: 25px;
+    -fx-text-fill: #70451B;
+    
+}
+
 .button{
     -fx-text-fill: #70451B;
     -fx-background-color: #E9EFC0;
+}
+
+.boton2{
+    
+    -fx-background-color: #FFBC42;
 }
 
 .bordefoto{

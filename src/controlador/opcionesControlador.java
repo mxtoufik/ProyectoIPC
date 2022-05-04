@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -55,7 +56,7 @@ public class opcionesControlador implements Initializable {
             LocalDate birthdate = LocalDate.now().minusYears(18);
             */
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "1234");
+            User admin = base.loginUser("Mohammed", "123");
             
             nombreUsuario.setText(admin.getNickName());
             usuarioAvatar.setImage(admin.getAvatar());
@@ -68,16 +69,18 @@ public class opcionesControlador implements Initializable {
     private void btnModificar(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/EditarPerfil.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Cambios.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
+      
             stage.setTitle("Editar Perfil del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
             
-            stage.setScene(new Scene(root1));
+            stage.setScene(scene);
             stage.setResizable(false);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
@@ -91,14 +94,15 @@ public class opcionesControlador implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
             stage.setTitle("Ver estadísticas del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
             
-            stage.setScene(new Scene(root1));
+            stage.setScene(scene);
             stage.setResizable(false);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();

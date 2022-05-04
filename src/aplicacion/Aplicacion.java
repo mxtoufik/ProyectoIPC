@@ -49,7 +49,7 @@ public class Aplicacion extends Application {
             LocalDate birthdate = LocalDate.now().minusYears(18);
             */
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "1234");
+            User admin = base.loginUser("Mohammed", "123");
             
             
             
