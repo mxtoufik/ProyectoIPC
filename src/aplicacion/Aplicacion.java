@@ -28,7 +28,7 @@ public class Aplicacion extends Application {
    // public static Navegacion base;
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/opciones.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
         Parent root = loader.load();
         
         Scene scene = new Scene(root);
@@ -42,20 +42,7 @@ public class Aplicacion extends Application {
         stage.getIcons().add(new Image("resources/Icono.png"));
         stage.show();
         
-        try {
-            /*String nombre = "Mohammed";
-            String email = "tangertoufik@gmail.com";
-            String contraseña = "1234";
-            LocalDate birthdate = LocalDate.now().minusYears(18);
-            */
-            Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "123");
-            
-            
-            
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
     /**

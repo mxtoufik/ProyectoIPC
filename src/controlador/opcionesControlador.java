@@ -54,10 +54,11 @@ public class opcionesControlador implements Initializable {
             String email = "tangertoufik@gmail.com";
             String contraseña = "1234";
             LocalDate birthdate = LocalDate.now().minusYears(18);
-            */
+            
+             */
             Navegacion base = Navegacion.getSingletonNavegacion();
             User admin = base.loginUser("Mohammed", "123");
-            
+
             nombreUsuario.setText(admin.getNickName());
             usuarioAvatar.setImage(admin.getAvatar());
         } catch (NavegacionDAOException ex) {
@@ -74,10 +75,10 @@ public class opcionesControlador implements Initializable {
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
-      
+
             stage.setTitle("Editar Perfil del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
-            
+
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -99,7 +100,7 @@ public class opcionesControlador implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Ver estadísticas del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
-            
+
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
@@ -109,13 +110,12 @@ public class opcionesControlador implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
 
     }
 
     @FXML
     private void btnCerrarSesion(ActionEvent event) {
-        
+
     }
 
     @FXML

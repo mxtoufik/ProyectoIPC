@@ -83,7 +83,8 @@ public class editarPerfilControlador2 implements Initializable {
             usuarioNombre.setText(admin.getNickName());
             usuarioCorreo.setText(admin.getEmail());
             usuarioAvatar.setImage(admin.getAvatar());
-            //datePicker.setDate(admin.getBirthdate());
+            usuarioContraseña.setText(admin.getPassword());
+            usuarioNuevaContraseña.setText(admin.getPassword());
             datePicker.setValue(admin.getBirthdate());
         } catch (NavegacionDAOException ex) {
 
@@ -139,7 +140,13 @@ public class editarPerfilControlador2 implements Initializable {
         if (coincide) {
             String username = usuarioCorreo.getText();
             LocalDate fecha = datePicker.getValue();
-            if (password.equals(passwordRepetida)) {
+
+           String regex2 = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
+           Pattern pattern2 = Pattern.compile(regex2);
+           Matcher matcher2 = pattern.matcher(password);
+           Boolean coincide2 = matcher2.matches();
+            
+            if ((password.equals(passwordRepetida) && coincide2)) {
 
                 try {
                     //admin.setEmail(str);

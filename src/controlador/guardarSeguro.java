@@ -62,7 +62,7 @@ public class guardarSeguro implements Initializable {
     private void btnSi(ActionEvent event) throws NavegacionDAOException {
         admin.setEmail(usuarioCorreo);
         admin.setBirthdate(fecha);
-        admin.setPassword(nuevaContra);
+        //admin.setPassword(nuevaContra);
         Node node = (Node) event.getSource();
         node.getScene().getWindow().hide();
     }
