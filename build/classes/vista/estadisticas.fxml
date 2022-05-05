@@ -15,15 +15,15 @@
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="487.0">
                <children>
-                  <Button mnemonicParsing="false" text="←" />
+                  <Button mnemonicParsing="false" onAction="#btnAtras" text="←" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="54.0" prefWidth="487.0" spacing="20.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Desde" />
-                  <DatePicker />
+                  <DatePicker fx:id="fechaInicio" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hasta" />
-                  <DatePicker />
+                  <DatePicker fx:id="fechaFinal" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -32,7 +32,7 @@
             <HBox alignment="BOTTOM_CENTER" prefHeight="66.0" prefWidth="474.0" spacing="50.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aciertos" wrappingWidth="43.826171875" />
-                  <ProgressBar prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="aciertos" prefWidth="200.0" progress="0.0" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -41,7 +41,7 @@
             <HBox alignment="CENTER" prefHeight="117.0" prefWidth="452.0" spacing="50.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fallos" wrappingWidth="43.900390625" />
-                  <ProgressBar prefWidth="200.0" progress="0.0" />
+                  <ProgressBar fx:id="fallos" prefWidth="200.0" progress="0.0" />
                </children>
                <VBox.margin>
                   <Insets />

@@ -19,11 +19,11 @@ import javafx.stage.Stage;
  */
 public class Aplicacion extends Application {
 
-    private Object primaryStage;
+    //private Object primaryStage;
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/aplicacion/ElegirPregunta.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/ElegirPregunta.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
        // primaryStage.setScene(scene);

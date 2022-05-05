@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ElegirPreguntaContolador">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ElegirPreguntaContolador">
    <center>
-      <GridPane BorderPane.alignment="CENTER">
+      <GridPane alignment="TOP_CENTER" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.66668701171875" minWidth="10.0" prefWidth="104.66668701171875" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="355.33331298828125" minWidth="10.0" prefWidth="355.33331298828125" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.6666259765625" minWidth="10.0" prefWidth="90.6666259765625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.9999633789063" minWidth="0.0" prefWidth="110.39996337890625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="483.800048828125" minWidth="10.0" prefWidth="394.40003662109376" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.1999877929688" minWidth="10.0" prefWidth="96.00000000000006" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="204.79999389648438" minHeight="10.0" prefHeight="120.00000610351563" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="188.00002746582035" minHeight="10.0" prefHeight="115.19999389648439" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="153.4000213623047" minHeight="10.0" prefHeight="135.80001525878907" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="418.0" text="Elegir Pregunta" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="botonPreguntaAleatoria" mnemonicParsing="false" onAction="#irAPreguntaAleatoria" text="Pregunta Aleatoria" />
+                  <Button fx:id="botonPreguntaAleatoria" mnemonicParsing="false" onAction="#irAPreguntaAleatoria" prefHeight="35.0" prefWidth="106.0" text="Aleatoria" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+            <VBox alignment="CENTER" prefHeight="121.0" prefWidth="99.0" GridPane.columnIndex="2">
                <children>
-                  <Button fx:id="botonPerfil" mnemonicParsing="false" onAction="#irAPerfil" prefHeight="35.0" prefWidth="56.0" text="Perfil" />
+                  <ImageView fx:id="botonPerfil" fitHeight="70.0" fitWidth="70.0" onMouseClicked="#IrAPerfil" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="50.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="pregunta1" mnemonicParsing="false" onAction="#irpregunta1" prefHeight="26.0" prefWidth="400.0" text="1" />
+                  <Button fx:id="pregunta2" mnemonicParsing="false" onAction="#irpregunta2" prefHeight="26.0" prefWidth="400.0" text="2" />
+                  <Button fx:id="pregunta3" mnemonicParsing="false" onAction="#irpregunta3" prefHeight="26.0" prefWidth="400.0" text="3" />
+                  <Button fx:id="pregunta4" mnemonicParsing="false" onAction="#irpregunta4" prefHeight="26.0" prefWidth="400.0" text="4" />
                </children>
             </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SELECCIONE CUESTIÓN" />
+               </children>
+            </HBox>
          </children>
       </GridPane>
    </center>

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +16,7 @@
          <children>
             <HBox alignment="BOTTOM_CENTER" prefHeight="215.0" prefWidth="178.0">
                <children>
-                  <ImageView fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@recursos_entrega/avatars/default.png" />
                      </image>
@@ -27,7 +28,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" text="Cambiar Foto" />
+                  <Button mnemonicParsing="false" onAction="#btnCambiarFoto" text="Cambiar Foto" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -40,24 +41,45 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="302.0" prefWidth="244.0" spacing="20.0">
+      <VBox alignment="CENTER" prefHeight="302.0" prefWidth="270.0">
          <children>
-            <HBox prefHeight="33.0" prefWidth="213.0" spacing="40.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="261.0" spacing="40.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo" />
+                  <Text fx:id="usuarioNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo" />
                </children>
             </HBox>
-            <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
+            <HBox prefHeight="30.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="59.111328125" />
-                  <TextField />
+                  <TextField fx:id="usuarioCorreo" prefHeight="25.0" prefWidth="170.0" />
                </children>
             </HBox>
-            <HBox prefHeight="33.0" prefWidth="213.0" spacing="30.0">
+            <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
+               <children>
+                  <Text fx:id="correoIncorrecto" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="30.0" prefWidth="213.0" spacing="30.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" wrappingWidth="59.859375" />
-                  <TextField />
+                  <PasswordField fx:id="usuarioContraseña" prefHeight="25.0" prefWidth="170.0" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
+               <children>
+                  <Text fx:id="contrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="261.0" spacing="30.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Contraseña" wrappingWidth="59.859375" />
+                  <PasswordField fx:id="usuarioNuevaContraseña" prefHeight="25.0" prefWidth="169.0" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
+               <children>
+                  <Text fx:id="repetirContrasenaIncorrecta" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                </children>
             </HBox>
          </children>
@@ -69,12 +91,12 @@
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="←" />
+                  <Button mnemonicParsing="false" onAction="#btnAtras" text="←" />
                </children>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="166.0" prefWidth="71.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#btnGuardar" prefHeight="25.0" prefWidth="79.0" text="Guardar" />
                </children>
             </HBox>
          </children>
