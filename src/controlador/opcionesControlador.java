@@ -57,7 +57,7 @@ public class opcionesControlador implements Initializable {
             
              */
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "123");
+            User admin = base.loginUser("Mohammed", "Holahola1@");
 
             nombreUsuario.setText(admin.getNickName());
             usuarioAvatar.setImage(admin.getAvatar());

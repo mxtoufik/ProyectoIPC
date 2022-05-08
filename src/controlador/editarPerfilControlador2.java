@@ -78,7 +78,7 @@ public class editarPerfilControlador2 implements Initializable {
                 }
             });
             Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "123");
+            User admin = base.loginUser("Mohammed", "Holahola1@");
 
             usuarioNombre.setText(admin.getNickName());
             usuarioCorreo.setText(admin.getEmail());
@@ -143,7 +143,7 @@ public class editarPerfilControlador2 implements Initializable {
 
            String regex2 = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
            Pattern pattern2 = Pattern.compile(regex2);
-           Matcher matcher2 = pattern.matcher(password);
+           Matcher matcher2 = pattern2.matcher(password);
            Boolean coincide2 = matcher2.matches();
             
             if ((password.equals(passwordRepetida) && coincide2)) {
@@ -187,7 +187,7 @@ public class editarPerfilControlador2 implements Initializable {
                 repetirContrasenaIncorrecta.setVisible(true);
                 repetirContrasenaIncorrecta.setText("Las contraseñas introducidas no coinciden");
             }
-        } else {
+        }else {
             correoIncorrecto.setVisible(true);
 
             correoIncorrecto.setText("El correo introducido es incorrecto");

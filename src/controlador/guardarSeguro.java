@@ -45,7 +45,7 @@ public class guardarSeguro implements Initializable {
         try {
 
             Navegacion base = Navegacion.getSingletonNavegacion();
-            admin = base.loginUser("Mohammed", "123");
+            admin = base.loginUser("Mohammed", "Holahola1@");
 
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);

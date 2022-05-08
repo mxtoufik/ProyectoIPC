@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -61,10 +62,12 @@ public class estadisticasControlador implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+            scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(new Scene(root1));
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
