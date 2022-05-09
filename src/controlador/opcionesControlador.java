@@ -6,6 +6,7 @@
 package controlador;
 
 import DBAccess.NavegacionDAOException;
+import aplicacion.Aplicacion;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -49,21 +50,11 @@ public class opcionesControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            /*String nombre = "Mohammed";
-            String email = "tangertoufik@gmail.com";
-            String contraseña = "1234";
-            LocalDate birthdate = LocalDate.now().minusYears(18);
-            
-             */
-            Navegacion base = Navegacion.getSingletonNavegacion();
-            User admin = base.loginUser("Mohammed", "Holahola1@");
+        Navegacion base = Aplicacion.base;
+        User admin = base.loginUser("Mohammed", "Holahola1@");
+        nombreUsuario.setText(admin.getNickName());
+        usuarioAvatar.setImage(admin.getAvatar());
 
-            nombreUsuario.setText(admin.getNickName());
-            usuarioAvatar.setImage(admin.getAvatar());
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @FXML
@@ -115,6 +106,21 @@ public class opcionesControlador implements Initializable {
 
     @FXML
     private void btnCerrarSesion(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Scene scene = new Scene(root1);
+
+            Stage stage = new Stage();
+            stage.setTitle("SAILAPP");
+            stage.setScene(scene);
+            stage.show();
+
+            Node node = (Node) event.getSource();
+            node.getScene().getWindow().hide();
+        } catch (IOException ex) {
+            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import aplicacion.Aplicacion;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -20,9 +21,12 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Navegacion;
+import model.Session;
 
 /**
  * FXML Controller class
@@ -39,19 +43,44 @@ public class estadisticasControlador implements Initializable {
     private ProgressBar aciertos;
     @FXML
     private ProgressBar fallos;
+    @FXML
+    private Text aciertosPer;
+    @FXML
+    private Text fallosPer;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Navegacion baseD = Aplicacion.base;
+            //Session a = new Session(LocalDateTime.now(), 0, 0);
             fechaInicio.setShowWeekNumbers(false);
+            fechaFinal.setDisable(true);
             fechaInicio.setDayCellFactory(picker -> new DateCell() {
                 public void updateItem(LocalDate date, boolean empty) {
+                    //fechaFinal.setDisable(true);
+                    fechaFinal.setValue(null);
                     super.updateItem(date, empty);
                     LocalDate today = LocalDate.now();
 
                     setDisable(empty || date.compareTo(today) > 0);
+                    if(fechaInicio.getValue() != null) {
+                        fechaFinal.setDisable(false);
+                    }
+                }
+            });
+            
+            fechaInicio.getValue();
+            
+            
+            fechaFinal.setShowWeekNumbers(false);
+            fechaFinal.setDayCellFactory(picker -> new DateCell() {
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate hoy = LocalDate.now();
+
+                    setDisable(empty || (date.compareTo(fechaInicio.getValue()) < 0) || (date.compareTo(hoy) > 0));
                 }
             });
     }    
@@ -60,7 +89,7 @@ public class estadisticasControlador implements Initializable {
     private void btnAtras(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);

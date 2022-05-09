@@ -45,7 +45,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aciertos" wrappingWidth="44.0" />
                   <ProgressBar fx:id="aciertos" prefWidth="200.0" progress="0.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="40.0" />
+                  <Text fx:id="aciertosPer" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="40.0" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -55,7 +55,7 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fallos" wrappingWidth="44.0" />
                   <ProgressBar fx:id="fallos" prefWidth="200.0" progress="0.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="40.0">
+                  <Text fx:id="fallosPer" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="40.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

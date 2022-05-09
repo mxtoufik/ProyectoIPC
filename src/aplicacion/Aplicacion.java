@@ -25,9 +25,15 @@ import model.User;
  * @author jsanchez
  */
 public class Aplicacion extends Application {
-   // public static Navegacion base;
+    public static Navegacion base;
+    
     @Override
     public void start(Stage stage) throws Exception {
+        
+        base = Navegacion.getSingletonNavegacion();
+        
+        
+        
         FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
         Parent root = loader.load();
         

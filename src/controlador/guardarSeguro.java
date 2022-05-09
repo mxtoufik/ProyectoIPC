@@ -6,6 +6,7 @@
 package controlador;
 
 import DBAccess.NavegacionDAOException;
+import aplicacion.Aplicacion;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -42,14 +43,8 @@ public class guardarSeguro implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-
-            Navegacion base = Navegacion.getSingletonNavegacion();
-            admin = base.loginUser("Mohammed", "Holahola1@");
-
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Navegacion base = Aplicacion.base;
+        admin = base.loginUser("Mohammed", "Holahola1@");
     }
 
     public void displayName(String username, LocalDate fechas, String password) {

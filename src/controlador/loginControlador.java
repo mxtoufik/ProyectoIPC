@@ -45,12 +45,7 @@ public class loginControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            Navegacion base = Navegacion.getSingletonNavegacion();
-
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(loginControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
     @FXML
@@ -60,7 +55,7 @@ public class loginControlador implements Initializable {
         if(existe){
             try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
