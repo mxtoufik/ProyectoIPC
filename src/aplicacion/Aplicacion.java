@@ -34,7 +34,7 @@ public class Aplicacion extends Application {
         
         
         
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/Opciones.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
         Parent root = loader.load();
         
         Scene scene = new Scene(root);

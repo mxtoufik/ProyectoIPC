@@ -9,6 +9,7 @@ import aplicacion.Aplicacion;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,7 +55,7 @@ public class estadisticasControlador implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Navegacion baseD = Aplicacion.base;
-            //Session a = new Session(LocalDateTime.now(), 0, 0);
+            Session a = new Session(LocalDateTime.now(), 0, 0);
             fechaInicio.setShowWeekNumbers(false);
             fechaFinal.setDisable(true);
             fechaInicio.setDayCellFactory(picker -> new DateCell() {
