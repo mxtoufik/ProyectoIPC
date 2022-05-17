@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -105,6 +107,12 @@ public class estadisticasControlador implements Initializable {
             node.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void aa(KeyEvent event) {
+        if(event.getCode()==KeyCode.ENTER){
+            System.out.print("a");
         }
     }
     

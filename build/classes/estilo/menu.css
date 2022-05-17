@@ -15,17 +15,30 @@
 .button{
     -fx-text-fill: #70451B;
     -fx-background-color: #E9EFC0;
+    -fx-background-radius: 15px;
+    -fx-border-color: #70451B;
+    -fx-border-radius: 15px;
+}
+
+.button:hover{
+    -fx-background-color: #70451B;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #E9EFC0;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
+}
+
+.button:pressed{
+    -fx-background-color: blue;
+    -fx-background-radius: 15px;
+    -fx-text-fill: #E9EFC0;
+    -fx-border-color: black;
+    -fx-border-radius: 15px;
 }
 
 .boton2{
     
     -fx-background-color: #FFBC42;
-}
-
-.bordefoto{
-    -fx-border-color: #83BD75;
-    -fx-border-width: 1px;
-    -fx-border-style: solid;
 }
 
 .text{

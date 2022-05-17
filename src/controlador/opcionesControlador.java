@@ -21,10 +21,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -55,10 +59,10 @@ public class opcionesControlador implements Initializable {
         nombreUsuario.setText(admin.getNickName());
         usuarioAvatar.setImage(admin.getAvatar());
 
-    }
+}
 
-    @FXML
-    private void btnModificar(ActionEvent event) {
+@FXML
+private void btnModificar(ActionEvent event) {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Cambios.fxml"));
@@ -82,7 +86,7 @@ public class opcionesControlador implements Initializable {
     }
 
     @FXML
-    private void btnEstadisticas(ActionEvent event) {
+private void btnEstadisticas(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -105,7 +109,7 @@ public class opcionesControlador implements Initializable {
     }
 
     @FXML
-    private void btnCerrarSesion(ActionEvent event) {
+private void btnCerrarSesion(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -118,14 +122,17 @@ public class opcionesControlador implements Initializable {
 
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
-        } catch (IOException ex) {
-            Logger.getLogger(opcionesControlador.class.getName()).log(Level.SEVERE, null, ex);
+
+} catch (IOException ex) {
+            Logger.getLogger(opcionesControlador.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     @FXML
-    private void btnCerrarVentana(ActionEvent event) {
+private void btnCerrarVentana(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

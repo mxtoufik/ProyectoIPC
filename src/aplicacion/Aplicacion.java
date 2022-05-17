@@ -34,17 +34,15 @@ public class Aplicacion extends Application {
         
         
         
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/mapa.fxml"));
         Parent root = loader.load();
         
         Scene scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
+        ///scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
         //stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        //stage.initStyle(StageStyle.UNDECORATED);
-        stage.setResizable(false);
+        ///stage.initStyle(StageStyle.TRANSPARENT);
         stage.getIcons().add(new Image("resources/Icono.png"));
         stage.show();
         
