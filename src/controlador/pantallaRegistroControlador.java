@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author tange
+ * @author elena
  */
 public class pantallaRegistroControlador implements Initializable {
 

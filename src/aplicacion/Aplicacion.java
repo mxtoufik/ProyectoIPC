@@ -10,15 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Navegacion;
 
-/**
- *
- * @author jsanchez
- */
+
 public class Aplicacion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        Navegacion jugador = Navegacion.getSingletonNavegacion();
         FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/login.fxml"));
         Parent root = loader.load();
         
