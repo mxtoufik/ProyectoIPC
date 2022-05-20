@@ -180,7 +180,6 @@ public class registroControlador implements Initializable {
             String nickName = textNombre.getText();
             String email = textCorreo.getText();
             String password = textPassword.getText();
-            String passwordConf = textConfPassword.getText();
             LocalDate birthdate = textFecha.getValue();
             if(checkNickName(nickName))
                 nicknameBien = true;
