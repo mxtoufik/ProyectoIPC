@@ -49,24 +49,39 @@ public class opcionesControlador implements Initializable {
     @FXML
     private ImageView usuarioAvatar;
 
+    private User usuario;
+    private static Navegacion base;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Navegacion base = Aplicacion.base;
-        User admin = base.loginUser("Mohammed", "Holahola1@");
-        nombreUsuario.setText(admin.getNickName());
-        usuarioAvatar.setImage(admin.getAvatar());
+        base = Aplicacion.base;
 
-}
+    }
 
-@FXML
-private void btnModificar(ActionEvent event) {
+    public void getUserr(User usuarios) {
+        usuario = usuarios;
+        
+    }
+    
+    public void setUserr(){
+        nombreUsuario.setText(usuario.getNickName());
+        usuarioAvatar.setImage(usuario.getAvatar());
+    }
+
+    @FXML
+    private void btnModificar(ActionEvent event) {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Cambios.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            
+            editarPerfilControlador2 controlador = fxmlLoader.getController();
+            controlador.getUser(usuario);
+            controlador.setUser();
+            
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
@@ -86,10 +101,15 @@ private void btnModificar(ActionEvent event) {
     }
 
     @FXML
-private void btnEstadisticas(ActionEvent event) {
+    private void btnEstadisticas(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/estadisticas.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            
+            estadisticasControlador controlador = fxmlLoader.getController();
+            controlador.getUser(usuario);
+            
+            
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
@@ -109,7 +129,7 @@ private void btnEstadisticas(ActionEvent event) {
     }
 
     @FXML
-private void btnCerrarSesion(ActionEvent event) {
+    private void btnCerrarSesion(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -123,16 +143,15 @@ private void btnCerrarSesion(ActionEvent event) {
             Node node = (Node) event.getSource();
             node.getScene().getWindow().hide();
 
-} catch (IOException ex) {
-            Logger.getLogger(opcionesControlador.class  
-
-.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(opcionesControlador.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     @FXML
-private void btnCerrarVentana(ActionEvent event) {
+    private void btnCerrarVentana(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

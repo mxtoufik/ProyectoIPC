@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
@@ -36,8 +37,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -50,8 +54,11 @@ import javafx.util.Duration;
  * @author tange
  */
 public class mapaControlador implements Initializable {
-    
+
     private Group zoomGroup;
+    private Line linePainting;
+    private Circle circlePainting;
+    private double inicioXArc;
 
     @FXML
     private Slider zoom_slider;
@@ -91,13 +98,15 @@ public class mapaControlador implements Initializable {
     private VBox bordeCompas;
     @FXML
     private VBox bordePunto;
-    
+
     public static boolean pulsado;
     public static boolean pulsadoArco;
     public static boolean pulsadoTexto;
     public static boolean pulsadoBorrar;
     public static boolean pulsadoCompas;
     public static boolean pulsadoPunto;
+    @FXML
+    private Pane escena;
 
     /**
      * Initializes the controller class.
@@ -108,7 +117,7 @@ public class mapaControlador implements Initializable {
         zoom_slider.setMax(1.5);
         zoom_slider.setValue(1.0);
         zoom_slider.valueProperty().addListener((o, oldVal, newVal) -> zoom((Double) newVal));
-        
+
         //=========================================================================
         //Envuelva el contenido de scrollpane en un grupo para que 
         //ScrollPane vuelva a calcular las barras de desplazamiento tras el escalado
@@ -117,20 +126,18 @@ public class mapaControlador implements Initializable {
         contentGroup.getChildren().add(zoomGroup);
         zoomGroup.getChildren().add(map_scrollpane.getContent());
         map_scrollpane.setContent(contentGroup);
-        
-        
+
         splitPane.setDividerPositions(0.03);
         splitPane.maxWidthProperty().multiply(0.03);
         rightPane.maxWidthProperty().bind(splitPane.widthProperty().multiply(0.03));
-        
-        
-         pulsado = false;
-         pulsadoArco = false;
-         pulsadoTexto = false;
-         pulsadoBorrar = false;
-         pulsadoCompas = false;
-         pulsadoPunto = false;
-    }   
+
+        pulsado = false;
+        pulsadoArco = false;
+        pulsadoTexto = false;
+        pulsadoBorrar = false;
+        pulsadoCompas = false;
+        pulsadoPunto = false;
+    }
 
     @FXML
     private void zoomOut(ActionEvent event) {
@@ -149,8 +156,7 @@ public class mapaControlador implements Initializable {
         posicion.setText("sceneX: " + (int) event.getSceneX() + ", sceneY: " + (int) event.getSceneY() + "\n"
                 + "         X: " + (int) event.getX() + ",          Y: " + (int) event.getY());
     }
-    
-    
+
     private void zoom(double scaleValue) {
         //===================================================
         //guardamos los valores del scroll antes del escalado
@@ -167,37 +173,15 @@ public class mapaControlador implements Initializable {
     }
 
     @FXML
-    private void opciones(ActionEvent event) {
-        try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Scene scene = new Scene(root1);
-            scene.setFill(Color.TRANSPARENT);
-            Stage stage = new Stage();
-            stage.setTitle("SAILAPP");
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.show();
-            /*Node node = (Node) event.getSource();
-            node.getScene().getWindow().hide();*/
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     private void dibujar(MouseEvent event) {
-        if(!pulsado & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
+        if (!pulsado & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
             bordeLapiz.getStylesheets().add("estilo/style.css");
             bordeLapiz.getStyleClass().remove("image-view-wrapper");
             bordeLapiz.getStyleClass().add("image-view-wrapper2");
-            
+
+
             pulsado = true;
-        }
-        else{
+        } else {
             bordeLapiz.getStylesheets().add("estilo/style.css");
             bordeLapiz.getStyleClass().remove("image-view-wrapper2");
             bordeLapiz.getStyleClass().add("image-view-wrapper");
@@ -207,14 +191,13 @@ public class mapaControlador implements Initializable {
 
     @FXML
     private void dibujarArco(MouseEvent event) {
-        if(!pulsadoArco & !(pulsado | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
+        if (!pulsadoArco & !(pulsado | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
             bordeArco.getStylesheets().add("estilo/style.css");
             bordeArco.getStyleClass().remove("image-view-wrapper");
             bordeArco.getStyleClass().add("image-view-wrapper2");
-            
+
             pulsadoArco = true;
-        }
-        else{
+        } else {
             bordeArco.getStylesheets().add("estilo/style.css");
             bordeArco.getStyleClass().remove("image-view-wrapper2");
             bordeArco.getStyleClass().add("image-view-wrapper");
@@ -224,14 +207,13 @@ public class mapaControlador implements Initializable {
 
     @FXML
     private void dibujarTexto(MouseEvent event) {
-        if(!pulsadoTexto & !(pulsadoArco | pulsado | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
+        if (!pulsadoTexto & !(pulsadoArco | pulsado | pulsadoBorrar | pulsadoCompas | pulsadoPunto)) {
             bordeTexto.getStylesheets().add("estilo/style.css");
             bordeTexto.getStyleClass().remove("image-view-wrapper");
             bordeTexto.getStyleClass().add("image-view-wrapper2");
-            
+
             pulsadoTexto = true;
-        }
-        else{
+        } else {
             bordeTexto.getStylesheets().add("estilo/style.css");
             bordeTexto.getStyleClass().remove("image-view-wrapper2");
             bordeTexto.getStyleClass().add("image-view-wrapper");
@@ -241,14 +223,13 @@ public class mapaControlador implements Initializable {
 
     @FXML
     private void dibujarBorrar(MouseEvent event) {
-        if(!pulsadoBorrar & !(pulsadoArco | pulsadoTexto | pulsado | pulsadoCompas | pulsadoPunto)) {
+        if (!pulsadoBorrar & !(pulsadoArco | pulsadoTexto | pulsado | pulsadoCompas | pulsadoPunto)) {
             bordeBorrar.getStylesheets().add("estilo/style.css");
             bordeBorrar.getStyleClass().remove("image-view-wrapper");
             bordeBorrar.getStyleClass().add("image-view-wrapper2");
-            
+
             pulsadoBorrar = true;
-        }
-        else{
+        } else {
             bordeBorrar.getStylesheets().add("estilo/style.css");
             bordeBorrar.getStyleClass().remove("image-view-wrapper2");
             bordeBorrar.getStyleClass().add("image-view-wrapper");
@@ -258,14 +239,13 @@ public class mapaControlador implements Initializable {
 
     @FXML
     private void dibujarTransportador(MouseEvent event) {
-        if(!pulsadoCompas & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsado | pulsadoPunto)) {
+        if (!pulsadoCompas & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsado | pulsadoPunto)) {
             bordeCompas.getStylesheets().add("estilo/style.css");
             bordeCompas.getStyleClass().remove("image-view-wrapper");
             bordeCompas.getStyleClass().add("image-view-wrapper2");
-            
+
             pulsadoCompas = true;
-        }
-        else{
+        } else {
             bordeCompas.getStylesheets().add("estilo/style.css");
             bordeCompas.getStyleClass().remove("image-view-wrapper2");
             bordeCompas.getStyleClass().add("image-view-wrapper");
@@ -275,18 +255,76 @@ public class mapaControlador implements Initializable {
 
     @FXML
     private void dibujarPunto(MouseEvent event) {
-        if(!pulsadoPunto & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsado)) {
+        if (!pulsadoPunto & !(pulsadoArco | pulsadoTexto | pulsadoBorrar | pulsadoCompas | pulsado)) {
             bordePunto.getStylesheets().add("estilo/style.css");
             bordePunto.getStyleClass().remove("image-view-wrapper");
-            bordePunto.getStyleClass().add("image-view-wrapper2");
+            bordePunto.getStyleClass().add("image-view-wrapper2"); 
             
             pulsadoPunto = true;
-        }
-        else{
+        } else {
             bordePunto.getStylesheets().add("estilo/style.css");
             bordePunto.getStyleClass().remove("image-view-wrapper2");
             bordePunto.getStyleClass().add("image-view-wrapper");
             pulsadoPunto = false;
+        }
+    }
+
+    @FXML
+    private void finDibujar(MouseEvent event) {
+    }
+
+    @FXML
+    private void inicioDibujar(MouseEvent event) {
+        if(pulsado) {
+            linePainting = new Line(event.getX(), event.getY(), event.getX(), event.getY());
+            zoomGroup.getChildren().add(linePainting);
+            linePainting.setOnContextMenuRequested(e -> {
+                ContextMenu menuContext = new ContextMenu();
+                MenuItem borrarItem = new MenuItem("eliminar");
+                menuContext.getItems().add(borrarItem);
+                borrarItem.setOnAction(ev -> {
+                    zoomGroup.getChildren().remove((Node) e.getSource());
+                    ev.consume();
+                });
+                menuContext.show(linePainting, e.getSceneX(), e.getSceneY());
+                e.consume();
+            });
+        }
+        else{
+            if(pulsadoArco){
+                circlePainting = new Circle(1);
+        circlePainting.setStroke(Color.RED);
+        circlePainting.setFill(Color.TRANSPARENT);
+        
+        zoomGroup.getChildren().add(circlePainting);
+        
+        circlePainting.setCenterX(event.getX());
+        circlePainting.setCenterY(event.getY());
+        inicioXArc = event.getX();
+            }
+        }
+    
+    
+    }
+
+    @FXML
+    private void dib(MouseEvent event) {
+        if(pulsado == true){
+        linePainting.setEndX(event.getX());
+        linePainting.setEndY(event.getY());
+        event.consume();    
+        }
+        
+        //arco
+        if(pulsadoArco == true){
+        double radio = Math.abs(event.getX()- inicioXArc);
+        circlePainting.setRadius(radio);
+        event.consume();    
+        } 
+        
+        if(pulsadoBorrar == true){
+            zoomGroup.getChildren().clear();
+            zoomGroup.getChildren().add(escena);
         }
     }
 }

@@ -30,6 +30,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.Navegacion;
 import model.Session;
+import model.User;
 
 /**
  * FXML Controller class
@@ -50,6 +51,8 @@ public class estadisticasControlador implements Initializable {
     private Text aciertosPer;
     @FXML
     private Text fallosPer;
+    
+    private User usuario;
 
     /**
      * Initializes the controller class.
@@ -87,6 +90,11 @@ public class estadisticasControlador implements Initializable {
                 }
             });
     }    
+    
+    public void getUser(User usuarios){
+        usuario = usuarios;
+    }
+    
 
     @FXML
     private void btnAtras(ActionEvent event) {
@@ -94,6 +102,11 @@ public class estadisticasControlador implements Initializable {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            
+            opcionesControlador controlador = fxmlLoader.getController();
+            controlador.getUserr(usuario);
+            controlador.setUserr();
+            
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
@@ -107,12 +120,6 @@ public class estadisticasControlador implements Initializable {
             node.getScene().getWindow().hide();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private void aa(KeyEvent event) {
-        if(event.getCode()==KeyCode.ENTER){
-            System.out.print("a");
         }
     }
     

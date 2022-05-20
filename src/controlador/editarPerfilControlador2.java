@@ -69,7 +69,7 @@ public class editarPerfilControlador2 implements Initializable {
     @FXML
     private Text repetirContrasenaIncorrecta1;
     private Navegacion Base;
-    private User admin;
+    private User usuario;
 
     /**
      * Initializes the controller class.
@@ -85,22 +85,33 @@ public class editarPerfilControlador2 implements Initializable {
                 setDisable(empty || date.compareTo(today) > 0);
             }
         });
-        Navegacion base = Aplicacion.base;
-        User admin = base.loginUser("Mohammed", "Holahola1@");
-        usuarioNombre.setText(admin.getNickName());
-        usuarioCorreo.setText(admin.getEmail());
-        usuarioAvatar.setImage(admin.getAvatar());
-        usuarioContraseña.setText(admin.getPassword());
-        usuarioNuevaContraseña.setText(admin.getPassword());
-        datePicker.setValue(admin.getBirthdate());
+       
     }
 
+    public void getUser(User usuarios){
+        usuario = usuarios;
+    }
+    
+    public void setUser(){
+        usuarioNombre.setText(usuario.getNickName());
+        usuarioCorreo.setText(usuario.getEmail());
+        usuarioAvatar.setImage(usuario.getAvatar());
+        usuarioContraseña.setText(usuario.getPassword());
+        usuarioNuevaContraseña.setText(usuario.getPassword());
+        datePicker.setValue(usuario.getBirthdate());
+    }
+    
     @FXML
     private void btnAtras(ActionEvent event) {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
+            
+            opcionesControlador controlador = fxmlLoader.getController();
+            controlador.getUserr(usuario);
+            controlador.setUserr();
+            
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
@@ -138,25 +149,13 @@ public class editarPerfilControlador2 implements Initializable {
         repetirContrasenaIncorrecta1.setVisible(false);
 
         //Se encarga de ver si el correo introducido cumple con la estructura de uno propio.
-        boolean correoBien = admin.checkEmail(usuarioCorreo.getText());
-        /*
-        String regexCorreo = "^[A-Za-z0-9+_.-]+@+[A-Za-z0-9+_.-]+.+[A-Za-z0-9+_.-]$";
-        Pattern pattern = Pattern.compile(regexCorreo);
-        Matcher matcherCorreo = pattern.matcher(usuarioCorreo.getText());
-        Boolean coincideRegexCorreo = matcherCorreo.matches();
-         */
-
+        boolean correoBien = usuario.checkEmail(usuarioCorreo.getText());
         if (correoBien) {
 
             String password = usuarioContraseña.getText();
             String passwordRepetida = usuarioNuevaContraseña.getText();
-            boolean passwordBien = admin.checkPassword(usuarioContraseña.getText());
-            //Se encarga de ver si la contraseña introducida cumple con los requisitos previamente otorgados por el profesor.
-            /*String regexPassword = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[@#$%]).{8,20}$";
-            Pattern pattern2 = Pattern.compile(regexPassword);
-            Matcher matcherPassword = pattern2.matcher(password);
-            Boolean coincideRegexPassword = matcherPassword.matches();
-             */
+            boolean passwordBien = usuario.checkPassword(usuarioContraseña.getText());
+            
             if (passwordBien) {
                 if (password.equals(passwordRepetida)) {
 
@@ -181,8 +180,15 @@ public class editarPerfilControlador2 implements Initializable {
                         stage.initStyle(StageStyle.TRANSPARENT);
                         stage.showAndWait();
 
+                        System.out.println(usuario.getEmail());
+                        
                         FXMLLoader elLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
                         Parent root = (Parent) elLoader.load();
+                        
+                        opcionesControlador controlador2 = elLoader.getController();
+                        controlador2.getUserr(usuario);
+                        controlador2.setUserr();
+                        
                         Scene scene2 = new Scene(root);
                         scene2.setFill(Color.TRANSPARENT);
                         Stage stage2 = new Stage();

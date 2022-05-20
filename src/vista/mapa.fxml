@@ -20,7 +20,6 @@
    <children>
       <HBox alignment="CENTER_RIGHT" fillHeight="false" spacing="5.0" VBox.vgrow="NEVER">
          <children>
-            <Button mnemonicParsing="false" onAction="#opciones" stylesheets="@../estilo/style.css" text="Opciones" />
             <Region prefHeight="25.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
             <Label text="Zoom" />
             <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
@@ -35,7 +34,7 @@
          <items>
             <ScrollPane fx:id="map_scrollpane" hbarPolicy="ALWAYS" onMouseMoved="#muestraPosicion" pannable="true" prefHeight="398.0" prefWidth="358.0" vbarPolicy="ALWAYS">
                <content>
-                  <Pane>
+                  <Pane fx:id="escena" onMouseDragged="#dib" onMousePressed="#inicioDibujar" onMouseReleased="#finDibujar">
                      <children>
                         <ImageView pickOnBounds="true">
                            <image>

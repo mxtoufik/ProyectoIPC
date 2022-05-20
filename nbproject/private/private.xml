@@ -4,18 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/guardarSeguro.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/resources/test.png</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/estilo/menu.css</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/aplicacion/Aplicacion.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/opcionesControlador.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/editarPerfilControlador2.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/pantallaRegistroControlador.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/estilo/style.css</file>
             <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/mapaControlador.java</file>
             <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/loginControlador.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/preguntasControlador.java</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/aplicacion/Aplicacion.java</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/ElegirPreguntaContolador.java</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/registroControlador.java</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/PreguntasController.java</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/opcionesControlador.java</file>
             <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/estadisticasControlador.java</file>
-            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/estilo/estilos.css</file>
+            <file>file:/C:/Users/tange/Desktop/UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/controlador/editarPerfilControlador2.java</file>
         </group>
     </open-files>
 </project-private>

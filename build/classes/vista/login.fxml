@@ -2,9 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,54 +15,77 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="TOP_RIGHT" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.loginControlador">
-  <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="76.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="42.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="284.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="114.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="107.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
-  </rowConstraints>
-   <children>
-      <TextField fx:id="texto_usuario" prefHeight="31.0" prefWidth="325.0" promptText="Usuario" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <PasswordField promptText="Contraseña" GridPane.columnIndex="2" GridPane.rowIndex="2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../controlador/fxmlbase.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.loginControlador">
+    <children>
+      <GridPane alignment="TOP_RIGHT" hgap="10.0" layoutX="221.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1057.0" vgap="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="782.0" minWidth="10.0" prefWidth="758.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="213.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="84.0" minHeight="0.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="147.0" minHeight="0.0" prefHeight="146.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#pulsadoIniciar" text="Iniciar Sesión">
+            <TextField fx:id="texto_usuario" prefHeight="44.0" prefWidth="612.0" promptText="Usuario" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
-            </Button>
-         </children>
-      </HBox>
-      <Text fx:id="mensaje_usuario" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="35.0" prefWidth="103.0" text="Registrarse" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SailApp">
+            </TextField>
+            <PasswordField fx:id="texto_contrasena" prefHeight="40.0" prefWidth="492.0" promptText="Contraseña" GridPane.rowIndex="2">
                <font>
-                  <Font size="22.0" />
+                  <Font size="15.0" />
                </font>
-            </Text>
+            </PasswordField>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+               <children>
+                  <Text fx:id="mensaje_usuario" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="214.6708984375">
+                     <font>
+                        <Font name="Dubai Medium" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <Button fx:id="botonReg" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#BotonReg" prefHeight="46.0" prefWidth="143.0" styleClass="buttonAvatar" text="Registrarse" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="30.0" top="80.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="botonLog" contentDisplay="TOP" defaultButton="true" mnemonicParsing="false" onAction="#botonLog" prefHeight="52.0" prefWidth="152.0" styleClass="buttonRegistro" text="Iniciar Sesión" GridPane.rowIndex="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="300.0" />
+               </GridPane.margin>
+            </Button>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label styleClass="labelinicio" stylesheets="@../controlador/fxmlbase.css" text="SAIL APP">
+                     <GridPane.margin>
+                        <Insets left="150.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
          </children>
-      </HBox>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" />
-   </children>
-   <padding>
-      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-   </padding>
-</GridPane>
+         <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+      </GridPane>
+      <ImageView fx:id="barcoImag" fitHeight="305.0" fitWidth="390.0" layoutX="-39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Desktop/Yo/UNI/2º%20CUATRI/IPC/barco-de-vela-vehiculos-barcos-11846713.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

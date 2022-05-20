@@ -39,12 +39,12 @@ public class guardarSeguro implements Initializable {
     private LocalDate fecha;
     private String nuevaContra;
 
-    public User admin;
+    public User usuario;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Navegacion base = Aplicacion.base;
-        admin = base.loginUser("Mohammed", "Holahola1@");
+        usuario = base.loginUser("Mohammed", "Holahola1@");
     }
 
     public void displayName(String username, LocalDate fechas, String password) {
@@ -52,12 +52,16 @@ public class guardarSeguro implements Initializable {
         fecha = fechas;
         nuevaContra = password;
     }
+    
+    public void getUser(User usuarios){
+        usuario = usuarios;
+    }
 
     @FXML
     private void btnSi(ActionEvent event) throws NavegacionDAOException {
-        admin.setEmail(usuarioCorreo);
-        admin.setBirthdate(fecha);
-        //admin.setPassword(nuevaContra);
+        usuario.setEmail(usuarioCorreo);
+        usuario.setBirthdate(fecha);
+        usuario.setPassword(nuevaContra);
         Node node = (Node) event.getSource();
         node.getScene().getWindow().hide();
     }

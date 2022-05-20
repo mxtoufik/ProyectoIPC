@@ -32,23 +32,17 @@ public class Aplicacion extends Application {
         
         base = Navegacion.getSingletonNavegacion();
         
-        
-        
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/mapa.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/login.fxml"));
         Parent root = loader.load();
-        
         Scene scene = new Scene(root);
-        ///scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
-        //stage.initModality(Modality.APPLICATION_MODAL);
-        ///stage.initStyle(StageStyle.TRANSPARENT);
         stage.getIcons().add(new Image("resources/Icono.png"));
         stage.show();
-        
-        
     }
 
+    
+    
     /**
      * @param args the command line arguments
      */
