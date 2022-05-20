@@ -23,7 +23,7 @@ public class Aplicacion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/ElegirPregunta.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/ElegirPreguntaReisazable.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
        // primaryStage.setScene(scene);
@@ -41,6 +41,6 @@ public class Aplicacion extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-    }
+    } 
     
 }

@@ -1,0 +1,27 @@
+.textoo:hover{
+-fx-color: blue;
+-fx-font-size: 15px;
+}
+
+.button {
+    
+    -fx-color:   #cb4335 ;
+    -fx-color-font: black;
+    
+    
+    
+}
+
+.button2{
+    
+    -fx-color: green;
+    -fx-color-font: white;
+    
+}
+
+.background{
+    
+    -fx-background-color: #CBE0E9;
+      
+    
+}
