@@ -3,21 +3,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" styleClass="elborde" stylesheets="@../estilo/menu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.editarPerfilControlador2">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.editarPerfilControlador2">
    <children>
-      <VBox alignment="CENTER" prefHeight="360.0" prefWidth="238.0">
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="238.0" style="-fx-background-color: #b9d8c2;">
          <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cambio de perfil">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
             <HBox alignment="BOTTOM_CENTER" prefHeight="215.0" prefWidth="178.0">
                <children>
-                  <ImageView fx:id="usuarioAvatar" fitHeight="144.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="usuarioAvatar" fitHeight="160.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/avatars/default.png" />
                      </image>
@@ -29,7 +42,12 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="178.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnCambiarFoto" text="Cambiar Foto" />
+                  <MenuButton mnemonicParsing="false" prefHeight="20.0" prefWidth="130.0" style="-fx-background-color: F2e5d7;" text="MenuButton">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
                </children>
                <VBox.margin>
                   <Insets />
@@ -42,17 +60,27 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="360.0" prefWidth="357.0">
+      <Line endX="-100.0" endY="737.2929077148438" startX="-100.0" startY="317.484619140625" stroke="#6a8e7f" strokeWidth="4.0" />
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="357.0" style="-fx-background-color: #ffbcb5;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="320.0" spacing="40.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125" />
-                  <Text fx:id="usuarioNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo" />
+                  <Text fill="#6f2525" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Text>
+                  <Text fx:id="usuarioNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Text>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="213.0" spacing="30.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="66.811328125" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo" wrappingWidth="66.811328125">
+                     <font>
+                        <Font name="HP Simplified" size="14.0" />
+                     </font></Text>
                   <TextField fx:id="usuarioCorreo" prefHeight="25.0" prefWidth="191.0">
                      <HBox.margin>
                         <Insets />
@@ -69,7 +97,10 @@
             </HBox>
             <HBox prefHeight="30.0" prefWidth="213.0" spacing="30.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Contraseña" wrappingWidth="66.859375" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Contraseña" wrappingWidth="66.859375">
+                     <font>
+                        <Font name="HP Simplified" size="14.0" />
+                     </font></Text>
                   <PasswordField fx:id="usuarioContraseña" prefHeight="25.0" prefWidth="191.0">
                      <HBox.margin>
                         <Insets top="3.0" />
@@ -86,7 +117,10 @@
             </HBox>
             <HBox prefHeight="34.0" prefWidth="261.0" spacing="30.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Contraseña" wrappingWidth="66.859375" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Contraseña" wrappingWidth="66.859375">
+                     <font>
+                        <Font name="HP Simplified" size="14.0" />
+                     </font></Text>
                   <PasswordField fx:id="usuarioNuevaContraseña" prefHeight="25.0" prefWidth="191.0">
                      <HBox.margin>
                         <Insets top="3.0" />
@@ -103,7 +137,10 @@
             </HBox>
             <HBox prefHeight="34.0" prefWidth="261.0" spacing="30.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento" wrappingWidth="66.859375" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de Nacimiento" wrappingWidth="66.859375">
+                     <font>
+                        <Font name="HP Simplified" size="14.0" />
+                     </font></Text>
                   <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="191.0">
                      <HBox.margin>
                         <Insets top="3.0" />
@@ -122,20 +159,26 @@
          <HBox.margin>
             <Insets />
          </HBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="345.0" prefWidth="113.0">
+      <VBox alignment="TOP_RIGHT" prefHeight="420.0" prefWidth="130.0" style="-fx-background-color: #ffbcb5;">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="148.0" prefWidth="113.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnAtras" text="←" />
+                  <Button mnemonicParsing="false" onAction="#btnAtras" style="-fx-background-color: F2e5d7;" text="←" />
                </children>
                <padding>
                   <Insets right="10.0" />
                </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </HBox>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="182.0" prefWidth="113.0">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="250.0" prefWidth="106.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnGuardar" prefHeight="25.0" prefWidth="79.0" text="Guardar" />
+                  <Button mnemonicParsing="false" onAction="#btnGuardar" prefHeight="20.0" prefWidth="130.0" style="-fx-background-color: F2e5d7;" text="Guardar" />
                </children>
                <padding>
                   <Insets bottom="20.0" right="10.0" />
@@ -143,8 +186,11 @@
             </HBox>
          </children>
          <HBox.margin>
-            <Insets right="15.0" top="15.0" />
+            <Insets />
          </HBox.margin>
+         <padding>
+            <Insets right="5.0" top="20.0" />
+         </padding>
       </VBox>
    </children>
 </HBox>

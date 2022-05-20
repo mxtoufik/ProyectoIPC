@@ -67,8 +67,10 @@ public class opcionesControlador implements Initializable {
     }
     
     public void setUserr(){
-        nombreUsuario.setText(usuario.getNickName());
-        usuarioAvatar.setImage(usuario.getAvatar());
+        String elNombre = usuario.getNickName();
+        Image elAvatar = usuario.getAvatar();
+        nombreUsuario.setText(elNombre);
+        usuarioAvatar.setImage(elAvatar);
     }
 
     @FXML

@@ -84,7 +84,7 @@
       </GridPane>
       <ImageView fx:id="barcoImag" fitHeight="305.0" fitWidth="390.0" layoutX="-39.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/Yo/UNI/2º%20CUATRI/IPC/barco-de-vela-vehiculos-barcos-11846713.png" />
+            <Image url="@../resources/barco.png" />
          </image>
       </ImageView>
     </children>
