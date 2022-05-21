@@ -29,7 +29,7 @@
             <RowConstraints maxHeight="368.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" maxWidth="1300.0" style="-fx-background-color: #ffbcb5; -fx-border-color: #6a8e7f;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox alignment="CENTER" maxWidth="1300.0" style="-fx-background-color: #ffbcb5; -fx-border-color: #6a8e7f;" styleClass="mid" stylesheets="@../estilo/fxmlbase.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

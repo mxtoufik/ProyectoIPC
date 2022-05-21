@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="600.0" styleClass="hboxFondo" stylesheets="@../controlador/fxmlbase.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.registroControlador">
+   <children>
+      <VBox alignment="CENTER" prefHeight="434.0" prefWidth="175.0" styleClass="hboxFondo" stylesheets="@../controlador/fxmlbase.css" HBox.hgrow="ALWAYS">
+         <children>
+            <ImageView fx:id="usuarioAvatar" fitHeight="146.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../avatars/default.png" />
+               </image></ImageView>
+            <SplitMenuButton fx:id="elegirAvatar" mnemonicParsing="false" prefHeight="33.0" prefWidth="114.0" stylesheets="@../controlador/fxmlbase.css" text="Elegir avatar" VBox.vgrow="ALWAYS">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#avatar1">
+                     <graphic>
+                        <ImageView fx:id="avatar1" fitHeight="70.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../avatars/avatar1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                <MenuItem mnemonicParsing="false" onAction="#avatar2">
+                     <graphic>
+                        <ImageView fx:id="avatar2" fitHeight="70.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../avatars/avatar2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#avatar3">
+                     <graphic>
+                        <ImageView fx:id="avatar3" fitHeight="70.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../avatars/avatar3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#avatar4">
+                     <graphic>
+                        <ImageView fx:id="avatar4" fitHeight="70.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../avatars/avatar4.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#avatar5">
+                     <graphic>
+                        <ImageView fx:id="avatar5" fitHeight="70.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../avatars/default.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Button fx:id="seleccionarArchivo" mnemonicParsing="false" styleClass="buttonLogin" stylesheets="@../controlador/fxmlbase.css" text="Seleccionar Archivo" />
+                     </graphic>
+                  </MenuItem>
+              </items>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </SplitMenuButton>
+         </children>
+         <HBox.margin>
+            <Insets bottom="20.0" />
+         </HBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" prefHeight="452.0" prefWidth="424.0" spacing="20.0" styleClass="vboxRegistro" stylesheets="@../controlador/fxmlbase.css" HBox.hgrow="ALWAYS">
+         <children>
+            <Button fx:id="volverButton" mnemonicParsing="false" onAction="#volverButton" prefHeight="44.0" prefWidth="45.0" styleClass="buttonLogin" stylesheets="@../controlador/fxmlbase.css" text="&lt;-" VBox.vgrow="ALWAYS" />
+            <HBox prefHeight="53.0" prefWidth="378.0" spacing="90.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Nombre" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="51.0" prefWidth="224.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="textNombre" maxWidth="450.0" prefHeight="31.0" prefWidth="260.0" promptText="ej. Antonio18_" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="errorNombre" fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="223.6708984375" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="33.0" prefWidth="391.0" spacing="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Correo" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="52.0" prefWidth="226.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="textCorreo" maxWidth="450.0" prefHeight="31.0" prefWidth="260.0" promptText="ej. antoniolopez@gmail.com" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="errorCorreo" fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="223.6708984375" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="23.0" prefWidth="391.0" spacing="70.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Contraseña" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="51.0" prefWidth="228.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <PasswordField fx:id="textPassword" maxWidth="450.0" prefHeight="31.0" prefWidth="260.0" promptText="ej. NetBeans8*" />
+                        <Text fx:id="errorContraseña" fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="228.6708984375" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="391.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="138.0" text="Fecha de nacimiento" HBox.hgrow="ALWAYS" />
+                  <VBox prefHeight="56.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <DatePicker fx:id="textFecha" maxWidth="450.0" prefHeight="31.0" prefWidth="225.0" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="errorFecha" fill="#fc0000" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="258.6708984375" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="15.0" right="-10.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="botonAceptarReg" mnemonicParsing="false" onMouseClicked="#accionAceptarReg" styleClass="buttonLogin" stylesheets="@../controlador/fxmlbase.css" text="Aceptar" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin></Button>
+         </children>
+         <padding>
+            <Insets right="20.0" top="15.0" />
+         </padding>
+         <HBox.margin>
+            <Insets bottom="15.0" />
+         </HBox.margin></VBox>
+   </children>
+   <padding>
+      <Insets bottom="-20.0" />
+   </padding>
+</HBox>

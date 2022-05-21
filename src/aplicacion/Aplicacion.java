@@ -35,7 +35,7 @@ public class Aplicacion extends Application {
         
         base = Navegacion.getSingletonNavegacion();
         
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/login.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/vista/loginRed.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);

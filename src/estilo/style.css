@@ -24,3 +24,28 @@
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
+
+.rosa{
+-fx-background-color:  #ffbcb5;
+}
+
+.verde{
+-fx-background-color:  #b9d8c2;
+}
+
+.azul{
+-fx-background-color: #235784;
+}
+
+.textoAzul{
+-fx-font-color: #235784;
+}
+
+.botonesCrema{
+    -fx-background-color: #f2e5d7
+}
+
+.elborde{
+-fx-border-color: #235784;
+-fx-border-width: 2px;
+}

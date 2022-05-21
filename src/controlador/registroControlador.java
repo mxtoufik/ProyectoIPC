@@ -96,18 +96,19 @@ public class registroControlador implements Initializable {
     @FXML
     private Button seleccionarArchivo;
     @FXML
-    private MenuItem avatar1;
+    private ImageView avatar1;
     @FXML
-    private MenuItem avatar2;
+    private ImageView avatar2;
     @FXML
-    private MenuItem avatar3;
+    private ImageView avatar3;
     @FXML
-    private MenuItem avatar4;
+    private ImageView avatar4;
     @FXML
-    private MenuItem avatar5;
-    @FXML
+    private ImageView avatar5;
     private ImageView myImagView;
     private Stage stage;
+    @FXML
+    private Button volverButton;
 
     /**
      * Initializes the controller class.
@@ -151,13 +152,6 @@ public class registroControlador implements Initializable {
         });
     }
 
-    @FXML
-    private void textNombre(ActionEvent event) {
-    }
-
-    @FXML
-    private void textCorreo(ActionEvent event) {
-    }
 
     @FXML
     private void accionAceptarReg(MouseEvent event) throws IOException {
@@ -209,9 +203,6 @@ public class registroControlador implements Initializable {
         }
     }
 
-    @FXML
-    private void seleccionarArchivo(ActionEvent event) throws FileNotFoundException {
-    }
 
     @FXML
     private void avatar1(ActionEvent event) {
@@ -241,6 +232,10 @@ public class registroControlador implements Initializable {
     private void avatar5(ActionEvent event) {
         Image imagen5 = new Image("/avatars/default.png");
         usuarioAvatar.setImage(imagen5);
+    }
+
+    @FXML
+    private void volverButton(ActionEvent event) {
     }
 
 }

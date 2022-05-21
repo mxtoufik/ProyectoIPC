@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.opcionesControlador">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="700.0" styleClass="elborde" stylesheets="@../estilo/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.opcionesControlador">
    <children>
-      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="238.0" style="-fx-background-color: #b9d8c2;">
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="238.0" styleClass="verde">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0">
                <children>
@@ -55,7 +55,7 @@
          </children>
       </VBox>
       <Line endX="-100.0" endY="737.2929077148438" startX="-100.0" startY="317.484619140625" stroke="#6a8e7f" strokeWidth="4.0" />
-      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="357.0" spacing="30.0" style="-fx-background-color: #ffbcb5;">
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="357.0" spacing="30.0" styleClass="rosa">
          <HBox.margin>
             <Insets />
          </HBox.margin>
@@ -63,16 +63,16 @@
             <Insets left="10.0" />
          </padding>
          <children>
-            <Button mnemonicParsing="false" onAction="#btnModificar" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Modificar Perfil" />
-            <Button mnemonicParsing="false" onAction="#btnEstadisticas" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Ver estadísticas" />
-            <Button mnemonicParsing="false" onAction="#btnCerrarSesion" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Cerrar sesión" />
+            <Button mnemonicParsing="false" onAction="#btnModificar" prefWidth="200.0" styleClass="botonesCrema" text="Modificar Perfil" />
+            <Button mnemonicParsing="false" onAction="#btnEstadisticas" prefWidth="200.0" styleClass="botonesCrema" text="Ver estadísticas" />
+            <Button mnemonicParsing="false" onAction="#btnCerrarSesion" prefWidth="200.0" styleClass="botonesCrema" text="Cerrar sesión" />
          </children>
       </VBox>
-      <VBox alignment="TOP_RIGHT" prefHeight="420.0" prefWidth="130.0" style="-fx-background-color: #ffbcb5;">
+      <VBox alignment="TOP_RIGHT" prefHeight="420.0" prefWidth="130.0" styleClass="rosa">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="148.0" prefWidth="113.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnCerrarVentana" style="-fx-background-color: F2e5d7;" text="X" />
+                  <Button mnemonicParsing="false" onAction="#btnCerrarVentana" styleClass="botonesCrema" text="X" />
                </children>
                <padding>
                   <Insets right="10.0" />

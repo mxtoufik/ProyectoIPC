@@ -53,14 +53,14 @@ public class loginControlador implements Initializable {
     @FXML
     private Button botonLog;
     @FXML
-    private Button botonReg;
-    @FXML
     private Text mensaje_usuario;
     private ImageView myImagView;
     @FXML
     private ImageView barcoImag;
 
     private static Navegacion base;
+    @FXML
+    private Button BotonReg;
 
     /**
      * Initializes the controller class.
@@ -70,7 +70,7 @@ public class loginControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image imagenBarco = new Image("/resources/barco.png");
+        Image imagenBarco = new Image("/resources/logo.png");
         barcoImag.setImage(imagenBarco);
         base = Aplicacion.base;
     }
@@ -134,7 +134,7 @@ public class loginControlador implements Initializable {
     @FXML
     private void BotonReg(ActionEvent event) {
         try {
-            FXMLLoader loaderReg = new FXMLLoader(getClass().getResource("/vista/registro.fxml"));
+            FXMLLoader loaderReg = new FXMLLoader(getClass().getResource("/vista/registroRed.fxml"));
             Parent rootReg = (Parent) loaderReg.load();
             Stage stageReg = new Stage();
             stageReg.setTitle("SAILAPP");
