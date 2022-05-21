@@ -21,9 +21,9 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cambio de perfil">
+                  <Text fill="#235784" strokeType="OUTSIDE" strokeWidth="0.0" text="Cambio de perfil">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="HP Simplified Jpan Light" size="28.0" />
                      </font>
                   </Text>
                </children>
@@ -65,13 +65,13 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="320.0" spacing="40.0">
                <children>
-                  <Text fill="#6f2525" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125">
+                  <Text fill="#6a8e7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="59.845703125">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="HP Simplified" size="16.0" />
                      </font></Text>
-                  <Text fx:id="usuarioNombre" strokeType="OUTSIDE" strokeWidth="0.0" text="ElCorreo">
+                  <Text fx:id="usuarioNombre" fill="#6a8e7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="HP Simplified" size="16.0" />
                      </font></Text>
                </children>
             </HBox>
@@ -81,7 +81,7 @@
                      <font>
                         <Font name="HP Simplified" size="14.0" />
                      </font></Text>
-                  <TextField fx:id="usuarioCorreo" prefHeight="25.0" prefWidth="191.0">
+                  <TextField fx:id="usuarioCorreo" prefHeight="25.0" prefWidth="235.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></TextField>
@@ -101,7 +101,7 @@
                      <font>
                         <Font name="HP Simplified" size="14.0" />
                      </font></Text>
-                  <PasswordField fx:id="usuarioContraseña" prefHeight="25.0" prefWidth="191.0">
+                  <PasswordField fx:id="usuarioContraseña" prefHeight="25.0" prefWidth="235.0">
                      <HBox.margin>
                         <Insets top="3.0" />
                      </HBox.margin></PasswordField>
@@ -121,7 +121,7 @@
                      <font>
                         <Font name="HP Simplified" size="14.0" />
                      </font></Text>
-                  <PasswordField fx:id="usuarioNuevaContraseña" prefHeight="25.0" prefWidth="191.0">
+                  <PasswordField fx:id="usuarioNuevaContraseña" prefHeight="25.0" prefWidth="235.0">
                      <HBox.margin>
                         <Insets top="3.0" />
                      </HBox.margin></PasswordField>
@@ -141,7 +141,7 @@
                      <font>
                         <Font name="HP Simplified" size="14.0" />
                      </font></Text>
-                  <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="191.0">
+                  <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="235.0">
                      <HBox.margin>
                         <Insets top="3.0" />
                      </HBox.margin></DatePicker>
@@ -149,7 +149,7 @@
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="261.0">
                <children>
-                  <Text fx:id="repetirContrasenaIncorrecta1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
+                  <Text fx:id="fechaNacimiento" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false">
                      <HBox.margin>
                         <Insets bottom="5.0" right="30.0" />
                      </HBox.margin></Text>

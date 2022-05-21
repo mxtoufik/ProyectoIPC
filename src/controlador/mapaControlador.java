@@ -5,12 +5,16 @@
  */
 package controlador;
 
+import DBAccess.NavegacionDAOException;
+import aplicacion.Aplicacion;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -47,6 +51,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import model.Navegacion;
+import model.User;
 
 /**
  * FXML Controller class
@@ -107,6 +113,9 @@ public class mapaControlador implements Initializable {
     public static boolean pulsadoPunto;
     @FXML
     private Pane escena;
+    
+    private User usuario;
+    private Navegacion base;
 
     /**
      * Initializes the controller class.
@@ -117,20 +126,18 @@ public class mapaControlador implements Initializable {
         zoom_slider.setMax(1.5);
         zoom_slider.setValue(1.0);
         zoom_slider.valueProperty().addListener((o, oldVal, newVal) -> zoom((Double) newVal));
-
         //=========================================================================
-        //Envuelva el contenido de scrollpane en un grupo para que 
+        //Envuelva el contenido de scrollpane en un grupo para que
         //ScrollPane vuelva a calcular las barras de desplazamiento tras el escalado
         Group contentGroup = new Group();
         zoomGroup = new Group();
         contentGroup.getChildren().add(zoomGroup);
         zoomGroup.getChildren().add(map_scrollpane.getContent());
         map_scrollpane.setContent(contentGroup);
-
         splitPane.setDividerPositions(0.03);
         splitPane.maxWidthProperty().multiply(0.03);
         rightPane.maxWidthProperty().bind(splitPane.widthProperty().multiply(0.03));
-
+        base = Aplicacion.base;
         pulsado = false;
         pulsadoArco = false;
         pulsadoTexto = false;
@@ -139,6 +146,12 @@ public class mapaControlador implements Initializable {
         pulsadoPunto = false;
     }
 
+    
+    public void getUser(User usuarios) {
+        usuario = usuarios;
+        
+    }
+    
     @FXML
     private void zoomOut(ActionEvent event) {
         double sliderVal = zoom_slider.getValue();

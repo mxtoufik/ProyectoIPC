@@ -44,7 +44,7 @@ public class guardarSeguro implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Navegacion base = Aplicacion.base;
-        usuario = base.loginUser("Mohammed", "Holahola1@");
+        
     }
 
     public void displayName(String username, LocalDate fechas, String password) {

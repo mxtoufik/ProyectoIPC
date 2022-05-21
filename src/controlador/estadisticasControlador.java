@@ -100,7 +100,7 @@ public class estadisticasControlador implements Initializable {
     private void btnAtras(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones2.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             
             opcionesControlador controlador = fxmlLoader.getController();

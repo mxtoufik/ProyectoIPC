@@ -79,7 +79,7 @@ public class loginControlador implements Initializable {
             if (usuario.checkCredentials(usuarioNombre, usuarioPassword)) { //si el NICKNAME Y CONTRASEÑA coinciden
                 try {
                     User user1 = base.loginUser(texto_usuario.getText(), texto_contrasena.getText());
-                    FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/vista/ElegirPreguntaReisazable.fxml"));
+                    FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/vista/ElegirPregunta.fxml"));
                     Parent root = (Parent) loaderLogin.load();
 
                     ElegirPreguntaContolador controlador = loaderLogin.getController();

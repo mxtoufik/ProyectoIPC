@@ -129,7 +129,7 @@ public class PreguntasController implements Initializable {
     private void SaliendoPreguntas(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/ElegirPreguntaReisazable.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/ElegirPregunta.fxml"));
 
             Parent root6 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -266,6 +266,8 @@ public class PreguntasController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/mapa.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root1);
+            
+            
 
             Stage stage = new Stage();
             stage.setTitle("SAILAPP");

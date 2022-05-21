@@ -53,13 +53,9 @@ public class ElegirPreguntaContolador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            Image foto = new Image("/resources/engra.png", 160, 160, false, true);
-            botonPerfil.setImage(foto);
-            base = Navegacion.getSingletonNavegacion();
-        } catch (NavegacionDAOException ex) {
-            Logger.getLogger(ElegirPreguntaContolador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Image foto = new Image("/resources/engra.png", 160, 160, false, true);
+        botonPerfil.setImage(foto);
+        base = Aplicacion.base;
 
     }
 
@@ -195,7 +191,7 @@ public class ElegirPreguntaContolador implements Initializable {
 
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones2.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
 
             opcionesControlador controlador = fxmlLoader.getController();
@@ -225,6 +221,7 @@ public class ElegirPreguntaContolador implements Initializable {
             PreguntasController controlador = fxmlLoader.getController();
             controlador.displayName(i);
             controlador.showPregunta();
+            controlador.getUser(usuario);
 
             Stage stage = new Stage();
 

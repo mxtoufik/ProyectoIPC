@@ -179,7 +179,7 @@
                <children>
                   <ImageView fx:id="botonPerfil" fitHeight="62.0" fitWidth="164.0" layoutX="14.0" layoutY="42.0" onMouseClicked="#irAPerfil" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@UPV/2°-Segundo/2ªSemestre/IPC/ProyectoIPC/src/resources/engra.png" />
+                        <Image url="@../resources/engra.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -196,7 +196,7 @@
                <children>
                   <ImageView fitHeight="146.0" fitWidth="194.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
-                        <Image url="@LOGO-removebg-preview.png" />
+                        <Image url="@../resources/logo.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="20.0" top="30.0" />

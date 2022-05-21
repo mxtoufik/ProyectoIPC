@@ -66,10 +66,10 @@ public class editarPerfilControlador2 implements Initializable {
     private Text repetirContrasenaIncorrecta;
     @FXML
     private DatePicker datePicker;
-    @FXML
-    private Text repetirContrasenaIncorrecta1;
     private Navegacion Base;
     private User usuario;
+    @FXML
+    private Text fechaNacimiento;
 
     /**
      * Initializes the controller class.
@@ -85,14 +85,14 @@ public class editarPerfilControlador2 implements Initializable {
                 setDisable(empty || date.compareTo(today) > 0);
             }
         });
-       
+
     }
 
-    public void getUser(User usuarios){
+    public void getUser(User usuarios) {
         usuario = usuarios;
     }
-    
-    public void setUser(){
+
+    public void setUser() {
         usuarioNombre.setText(usuario.getNickName());
         usuarioCorreo.setText(usuario.getEmail());
         usuarioAvatar.setImage(usuario.getAvatar());
@@ -100,18 +100,18 @@ public class editarPerfilControlador2 implements Initializable {
         usuarioNuevaContraseña.setText(usuario.getPassword());
         datePicker.setValue(usuario.getBirthdate());
     }
-    
+
     @FXML
     private void btnAtras(ActionEvent event) {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Opciones2.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
-            
+
             opcionesControlador controlador = fxmlLoader.getController();
             controlador.getUserr(usuario);
             controlador.setUserr();
-            
+
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
@@ -128,10 +128,6 @@ public class editarPerfilControlador2 implements Initializable {
         }
     }
 
-    @FXML
-    private void btnCambiarFoto(ActionEvent event) {
-        
-    }
 
     public String getCorreo() {
         String elCorreo = usuarioCorreo.getText();
@@ -146,7 +142,7 @@ public class editarPerfilControlador2 implements Initializable {
         correoIncorrecto.setVisible(false);
         contrasenaIncorrecta.setVisible(false);
         repetirContrasenaIncorrecta.setVisible(false);
-        repetirContrasenaIncorrecta1.setVisible(false);
+        fechaNacimiento.setVisible(false);
 
         //Se encarga de ver si el correo introducido cumple con la estructura de uno propio.
         boolean correoBien = usuario.checkEmail(usuarioCorreo.getText());
@@ -155,53 +151,59 @@ public class editarPerfilControlador2 implements Initializable {
             String password = usuarioContraseña.getText();
             String passwordRepetida = usuarioNuevaContraseña.getText();
             boolean passwordBien = usuario.checkPassword(usuarioContraseña.getText());
-            
+
             if (passwordBien) {
                 if (password.equals(passwordRepetida)) {
 
                     String username = usuarioCorreo.getText();
                     LocalDate fecha = datePicker.getValue();
+                    if (fecha.isBefore(LocalDate.now().minusYears(18))) {
 
-                    try {
-                        
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Seguro.fxml"));
-                        Parent root1 = (Parent) fxmlLoader.load();
+                        try {
 
-                        guardarSeguro controlador = fxmlLoader.getController();
-                        controlador.displayName(username, fecha, password);
+                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Seguro.fxml"));
+                            Parent root1 = (Parent) fxmlLoader.load();
 
-                        Scene scene = new Scene(root1);
-                        scene.setFill(Color.TRANSPARENT);
-                        Stage stage = new Stage();
-                        stage.setTitle("SAILAPP");
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.setScene(scene);
-                        stage.setResizable(false);
-                        stage.initStyle(StageStyle.TRANSPARENT);
-                        stage.showAndWait();
+                            guardarSeguro controlador = fxmlLoader.getController();
+                            controlador.displayName(username, fecha, password);
+                            System.out.print(username);
+                            controlador.getUser(usuario);
+                            Scene scene = new Scene(root1);
+                            scene.setFill(Color.TRANSPARENT);
+                            Stage stage = new Stage();
+                            stage.setTitle("SAILAPP");
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.setScene(scene);
+                            stage.setResizable(false);
+                            stage.initStyle(StageStyle.TRANSPARENT);
+                            stage.showAndWait();
 
-                        System.out.println(usuario.getEmail());
-                        
-                        FXMLLoader elLoader = new FXMLLoader(getClass().getResource("/vista/Opciones3.fxml"));
-                        Parent root = (Parent) elLoader.load();
-                        
-                        opcionesControlador controlador2 = elLoader.getController();
-                        controlador2.getUserr(usuario);
-                        controlador2.setUserr();
-                        
-                        Scene scene2 = new Scene(root);
-                        scene2.setFill(Color.TRANSPARENT);
-                        Stage stage2 = new Stage();
-                        stage2.setTitle("SAILAPP");
-                        stage2.initModality(Modality.APPLICATION_MODAL);
-                        stage2.setScene(scene2);
-                        stage2.setResizable(false);
-                        stage2.initStyle(StageStyle.TRANSPARENT);
-                        stage2.show();
-                        Node node = (Node) event.getSource();
-                        node.getScene().getWindow().hide();
-                    } catch (IOException ex) {
+                            System.out.println(usuario.getEmail());
 
+                            FXMLLoader elLoader = new FXMLLoader(getClass().getResource("/vista/Opciones2.fxml"));
+                            Parent root = (Parent) elLoader.load();
+
+                            opcionesControlador controlador2 = elLoader.getController();
+                            controlador2.getUserr(usuario);
+                            controlador2.setUserr();
+
+                            Scene scene2 = new Scene(root);
+                            scene2.setFill(Color.TRANSPARENT);
+                            Stage stage2 = new Stage();
+                            stage2.setTitle("SAILAPP");
+                            stage2.initModality(Modality.APPLICATION_MODAL);
+                            stage2.setScene(scene2);
+                            stage2.setResizable(false);
+                            stage2.initStyle(StageStyle.TRANSPARENT);
+                            stage2.show();
+                            Node node = (Node) event.getSource();
+                            node.getScene().getWindow().hide();
+                        } catch (IOException ex) {
+
+                        }
+                    } else {
+                        fechaNacimiento.setVisible(true);
+                        fechaNacimiento.setText("Tienes que ser mayor de 16 años!");
                     }
                 } else {
                     repetirContrasenaIncorrecta.setVisible(true);
@@ -214,10 +216,10 @@ public class editarPerfilControlador2 implements Initializable {
                 alert.setHeaderText(null);
                 //alert.setColor(TRANSPARENT);
                 alert.initStyle(StageStyle.TRANSPARENT);
-                
+
                 DialogPane dialogPane = alert.getDialogPane();
                 dialogPane.getStylesheets().add(
-                getClass().getResource("/estilo/menu.css").toExternalForm());
+                        getClass().getResource("/estilo/menu.css").toExternalForm());
                 dialogPane.getScene().setFill(Color.TRANSPARENT);
                 dialogPane.setOpaqueInsets(Insets.EMPTY);
                 dialogPane.getStyleClass().add("elborde2");
