@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.opcionesControlador">
+   <children>
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="238.0" style="-fx-background-color: #b9d8c2;">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="230.0">
+               <children>
+                  <Text fill="#235784" strokeType="OUTSIDE" strokeWidth="0.0" text="Cambio de perfil">
+                     <font>
+                        <Font name="HP Simplified Jpan Light" size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="215.0" prefWidth="178.0">
+               <children>
+                  <ImageView fx:id="usuarioAvatar" fitHeight="160.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/avatars/default.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="178.0">
+               <children>
+                  <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre">
+                     <font>
+                        <Font name="HP Simplified Jpan Regular" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="108.0" prefWidth="178.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <Line endX="-100.0" endY="737.2929077148438" startX="-100.0" startY="317.484619140625" stroke="#6a8e7f" strokeWidth="4.0" />
+      <VBox alignment="CENTER" prefHeight="420.0" prefWidth="357.0" spacing="30.0" style="-fx-background-color: #ffbcb5;">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnModificar" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Modificar Perfil" />
+            <Button mnemonicParsing="false" onAction="#btnEstadisticas" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Ver estadísticas" />
+            <Button mnemonicParsing="false" onAction="#btnCerrarSesion" prefWidth="200.0" style="-fx-background-color: F2e5d7;" text="Cerrar sesión" />
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" prefHeight="420.0" prefWidth="130.0" style="-fx-background-color: #ffbcb5;">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="148.0" prefWidth="113.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btnCerrarVentana" style="-fx-background-color: F2e5d7;" text="X" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets right="5.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</HBox>
