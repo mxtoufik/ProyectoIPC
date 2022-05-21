@@ -14,10 +14,13 @@ import aplicacion.Aplicacion;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +35,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.Navegacion;
+import model.Session;
 import model.User;
 
 /**
@@ -47,6 +52,8 @@ public class ElegirPreguntaContolador implements Initializable {
 
     private User usuario;
     private static Navegacion base;
+    private Session sesion;
+    private Stage stage1;
 
     /**
      * Initializes the controller class.
@@ -68,97 +75,97 @@ public class ElegirPreguntaContolador implements Initializable {
     }
 
     @FXML
-    private void irpregunta1(ActionEvent event) {
+    private void irpregunta1(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 0);
     }
 
     @FXML
-    private void irpregunta2(ActionEvent event) {
+    private void irpregunta2(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 1);
     }
 
     @FXML
-    private void irpregunta3(ActionEvent event) {
+    private void irpregunta3(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 2);
     }
 
     @FXML
-    private void irpregunta4(ActionEvent event) {
+    private void irpregunta4(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 3);
     }
 
     @FXML
-    private void irpregunta5(ActionEvent event) {
+    private void irpregunta5(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 4);
     }
 
     @FXML
-    private void irpregunta6(ActionEvent event) {
+    private void irpregunta6(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 5);
     }
 
     @FXML
-    private void irpregunta7(ActionEvent event) {
+    private void irpregunta7(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 6);
     }
 
     @FXML
-    private void irpregunta8(ActionEvent event) {
+    private void irpregunta8(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 7);
     }
 
     @FXML
-    private void irpregunta10(ActionEvent event) {
+    private void irpregunta10(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 9);
     }
 
     @FXML
-    private void irpregunta11(ActionEvent event) {
+    private void irpregunta11(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 10);
     }
 
     @FXML
-    private void irpregunta12(ActionEvent event) {
+    private void irpregunta12(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 11);
     }
 
     @FXML
-    private void irpregunta13(ActionEvent event) {
+    private void irpregunta13(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 12);
     }
 
     @FXML
-    private void irpregunta14(ActionEvent event) {
+    private void irpregunta14(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 13);
     }
 
     @FXML
-    private void irpregunta15(ActionEvent event) {
+    private void irpregunta15(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 14);
     }
 
     @FXML
-    private void irpregunta16(ActionEvent event) {
+    private void irpregunta16(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 15);
     }
 
     @FXML
-    private void irpregunta17(ActionEvent event) {
+    private void irpregunta17(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 16);
     }
 
     @FXML
-    private void irpregunta18(ActionEvent event) {
+    private void irpregunta18(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 17);
     }
 
     @FXML
-    private void irpregunta9(ActionEvent event) {
+    private void irpregunta9(ActionEvent event) throws NavegacionDAOException {
         irALaPregunta(event, 8);
     }
 
     @FXML
-    private void irPreguntaAleatoria(ActionEvent event) {
+    private void irPreguntaAleatoria(ActionEvent event) throws NavegacionDAOException {
 
         try {
 
@@ -187,7 +194,7 @@ public class ElegirPreguntaContolador implements Initializable {
     }
 
     @FXML
-    private void irAPerfil(MouseEvent event) {
+    private void irAPerfil(MouseEvent event) throws NavegacionDAOException {
 
         try {
 
@@ -206,13 +213,39 @@ public class ElegirPreguntaContolador implements Initializable {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.initStyle(StageStyle.TRANSPARENT);
-            stage.show();
+            stage.showAndWait();
+
+            boolean i = controlador.getI();
+            if (i) {
+                try {
+                    int fallos = PreguntasController.getFallos();
+                    int aciertos = PreguntasController.getAciertos();
+                    Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
+                    usuario.addSession(sesion);
+                    PreguntasController.setCero();
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
+                    Parent root2 = (Parent) fxmlLoader2.load();
+                    Scene scene2 = new Scene(root2);
+
+                    Stage stage2 = new Stage();
+                    stage2.setTitle("SAILAPP");
+                    stage2.setScene(scene2);
+                    stage2.show();
+
+                    Node node = (Node) event.getSource();
+                    node.getScene().getWindow().hide();
+
+                } catch (IOException ex) {
+
+                }
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void irALaPregunta(ActionEvent event, int i) {
+    private void irALaPregunta(ActionEvent event, int i) throws NavegacionDAOException {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Preguntas.fxml"));
@@ -228,6 +261,25 @@ public class ElegirPreguntaContolador implements Initializable {
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root7));
+
+            stage.setOnCloseRequest((new EventHandler<WindowEvent>() {
+
+                @Override
+                public void handle(WindowEvent arg0) {
+                    arg0.consume();
+                    try {
+                        int fallos = PreguntasController.getFallos();
+                        int aciertos = PreguntasController.getAciertos();
+                        Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
+                        usuario.addSession(sesion);
+                        Platform.exit();
+
+                    } catch (Exception ex) {
+                        System.out.print(ex.getMessage() + "\r\n");
+                    }
+
+                }
+            }));
             stage.show();
 
             Node node5 = (Node) event.getSource();

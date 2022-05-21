@@ -10,6 +10,8 @@ import controlador.opcionesControlador;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.Navegacion;
 import model.User;
 
@@ -38,6 +41,26 @@ public class Aplicacion extends Application {
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
         stage.getIcons().add(new Image("resources/Icono.png"));
+        
+        stage.setOnCloseRequest((new EventHandler<WindowEvent>(){
+
+        @Override
+        public void handle(WindowEvent arg0) {
+                            arg0.consume();
+            try
+            {
+             System.out.println("Hola");
+             Platform.exit();
+
+                            }
+            catch(Exception ex)
+            {
+                System.out.print(ex.getMessage()+"\r\n");
+            }
+
+        }
+    }));
+
         stage.show();
     }
 

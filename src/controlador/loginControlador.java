@@ -11,8 +11,12 @@ import aplicacion.Aplicacion;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,7 +33,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import model.Navegacion;
+import model.Session;
 import model.User;
 import static model.User.checkNickName;
 
@@ -78,6 +84,7 @@ public class loginControlador implements Initializable {
         if (checkNickName(usuarioNombre)) { //ver si existe el NICKNAME
             if (usuario.checkCredentials(usuarioNombre, usuarioPassword)) { //si el NICKNAME Y CONTRASEÑA coinciden
                 try {
+
                     User user1 = base.loginUser(texto_usuario.getText(), texto_contrasena.getText());
                     FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/vista/ElegirPregunta.fxml"));
                     Parent root = (Parent) loaderLogin.load();
@@ -89,6 +96,26 @@ public class loginControlador implements Initializable {
                     stageLogin.setTitle("SAILAPP");
                     stageLogin.initModality(Modality.APPLICATION_MODAL);
                     stageLogin.setScene(new Scene(root));
+
+                    stageLogin.setOnCloseRequest((new EventHandler<WindowEvent>() {
+
+                        @Override
+                        public void handle(WindowEvent arg0) {
+                            arg0.consume();
+                            try {
+                                int fallos = PreguntasController.getFallos();
+                                int aciertos = PreguntasController.getAciertos();
+                                Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
+                                usuario.addSession(sesion);
+                                Platform.exit();
+
+                            } catch (Exception ex) {
+                                System.out.print(ex.getMessage() + "\r\n");
+                            }
+
+                        }
+                    }));
+
                     stageLogin.show();
 
                     Node nodeLogin = (Node) event.getSource();

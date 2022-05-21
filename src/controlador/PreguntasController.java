@@ -11,6 +11,7 @@ import java.awt.Color;
 import static java.awt.Color.BLACK;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -36,6 +37,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Session;
 import model.User;
 
 /**
@@ -79,7 +81,9 @@ public class PreguntasController implements Initializable {
     public static Boolean unoRes3;
 
     private User usuario;
-
+    private Session sesion;
+    private static int fallos;
+    private static int aciertos;
     /**
      * Initializes the controller class.
      */
@@ -89,6 +93,19 @@ public class PreguntasController implements Initializable {
         base = Aplicacion.base;
 
         btnConfirm.setDisable(true);
+    }
+    
+    public static void setCero(){
+        fallos = 0;
+        aciertos = 0;
+    }
+    
+    public static int getFallos(){
+        return fallos;
+    }
+    
+    public static int getAciertos(){
+        return aciertos;
     }
 
     public void displayName(int num) {
@@ -133,7 +150,7 @@ public class PreguntasController implements Initializable {
 
             Parent root6 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
-            
+
             ElegirPreguntaContolador controlador = fxmlLoader.getController();
             controlador.getUser(usuario);
 
@@ -225,6 +242,39 @@ public class PreguntasController implements Initializable {
 
     @FXML
     private void confirmar(ActionEvent event) {
+        switch (lares) {
+            case 1:
+                if (unoRes) {
+                    aciertos = aciertos + 1;
+                } else {
+                    fallos = fallos + 1;
+                }
+                break;
+
+            case 2:
+                if (unoRes1) {
+                    aciertos = aciertos + 1;
+                } else {
+                    fallos = fallos + 1;
+                }
+                break;
+
+            case 3:
+                if (unoRes2) {
+                    aciertos = aciertos + 1;
+                } else {
+                    fallos = fallos + 1;
+                }
+                break;
+
+            case 4:
+                if (unoRes3) {
+                    aciertos = aciertos + 1;
+                } else {
+                    fallos = fallos + 1;
+                }
+                break;
+        }
 
         if (unoRes) {
             res1.setStyle("-fx-text-fill: green;");
@@ -256,7 +306,7 @@ public class PreguntasController implements Initializable {
         }
         btnConfirm.setDisable(true);
         borrarbtn.setDisable(true);
-
+        System.out.println(aciertos + " " + fallos);
     }
 
     @FXML
@@ -266,8 +316,6 @@ public class PreguntasController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/mapa.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root1);
-            
-            
 
             Stage stage = new Stage();
             stage.setTitle("SAILAPP");

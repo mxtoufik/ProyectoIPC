@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +52,8 @@ public class opcionesControlador implements Initializable {
 
     private User usuario;
     private static Navegacion base;
+    private Stage elStage;
+    private boolean i;
 
     /**
      * Initializes the controller class.
@@ -59,6 +62,7 @@ public class opcionesControlador implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         base = Aplicacion.base;
 
+        
     }
 
     public void getUserr(User usuarios) {
@@ -129,10 +133,16 @@ public class opcionesControlador implements Initializable {
         }
 
     }
+    
+    public boolean getI(){
+        return i;
+    }
 
     @FXML
     private void btnCerrarSesion(ActionEvent event) {
-        try {
+        i = true;
+        
+        /*try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Scene scene = new Scene(root1);
@@ -149,11 +159,15 @@ public class opcionesControlador implements Initializable {
             Logger.getLogger(opcionesControlador.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void btnCerrarVentana(ActionEvent event) {
+        i = false;
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
