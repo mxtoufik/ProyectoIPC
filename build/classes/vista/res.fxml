@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="751.0" styleClass="verde" stylesheets="@../estilo/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.PreguntasController">
+   <children>
+      <HBox prefHeight="211.0" prefWidth="751.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER" prefHeight="224.0" prefWidth="702.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text fx:id="pregunta" pickOnBounds="true" strokeWidth="0.0" text="hola " textAlignment="JUSTIFY" wrappingWidth="531.1366696357727" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="60.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="botonSalir" mnemonicParsing="false" onAction="#SaliendoPreguntas" prefHeight="49.0" prefWidth="50.0" styleClass="botonesCrema" text="←" textAlignment="RIGHT">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets right="40.0" top="25.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="726.0" VBox.vgrow="ALWAYS">
+         <children>
+            <RadioButton fx:id="res1" mnemonicParsing="false" onAction="#clickres1" prefHeight="32.0" prefWidth="247.0" text="Respuesta1">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets left="80.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="28.0" prefWidth="751.0" VBox.vgrow="ALWAYS">
+         <children>
+            <RadioButton fx:id="res2" mnemonicParsing="false" onAction="#clickres2" prefHeight="34.0" prefWidth="263.0" text="Respuesta2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets left="80.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="21.0" prefWidth="751.0" VBox.vgrow="ALWAYS">
+         <children>
+            <RadioButton fx:id="res3" mnemonicParsing="false" onAction="#clickres3" prefHeight="33.0" prefWidth="264.0" text="Respuesta3">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets left="80.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="42.0" prefWidth="751.0" VBox.vgrow="ALWAYS">
+         <children>
+            <RadioButton fx:id="res4" mnemonicParsing="false" onAction="#clickres4" prefHeight="41.0" prefWidth="246.0" text="Respuesta4">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+         </children>
+         <padding>
+            <Insets left="80.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="135.0" prefWidth="751.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox prefHeight="112.0" prefWidth="700.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text fx:id="borrarbtn" fill="#231111" onMouseClicked="#borraSele" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoo" text="Borrar selección" underline="true" wrappingWidth="142.33672904968262">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Blend />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant>
+                                 <color>
+                                    <Color red="0.9894737005233765" />
+                                 </color>
+                              </Light.Distant>
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="80.0" top="60.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="141.0" prefWidth="393.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button maxWidth="170.0" mnemonicParsing="false" onAction="#abrirMapa" prefHeight="30.0" prefWidth="128.0" styleClass="botonesCrema" text="Abrir Mapa" />
+                  <Button fx:id="btnConfirm" maxHeight="36.0" maxWidth="170.0" mnemonicParsing="false" onAction="#confirmar" prefHeight="36.0" prefWidth="130.0" styleClass="botonesCrema" text="Confirmar" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets right="40.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

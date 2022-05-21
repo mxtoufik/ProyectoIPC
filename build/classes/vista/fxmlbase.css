@@ -1,0 +1,32 @@
+
+.vboxLogin {
+        -fx-background-color: #b9d8c2;
+        -fx-font-size: 14px;
+        -fx-font-family: "Segoe UI Semibold";
+}
+.vboxRegistro{
+        -fx-background-color: #ffbcb5;
+        -fx-font-size: 14px;
+        -fx-font-family: "Segoe UI Semibold";
+}
+.buttonLogin{
+    -fx-font-size: 14px;
+    -fx-border-radius: 4px;
+    -fx-background-color: #f2e5d7;
+    -fx-font-color: #0a0a0a;
+    -fx-font-family: "Segoe UI Semibold";
+}
+.vboxRegistroFoto{
+    -fx-background-color: #b9d8c2;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-border-color: #6a8e7f;
+    -fx-border-insets: 5;
+    -fx-border-width: 10;
+}
+.split-menu-button .arrow-button{
+    -fx-background-color: #f2e5d7;
+}
+.hboxFondo{
+    -fx-background-color: #6a8e7f
+}
