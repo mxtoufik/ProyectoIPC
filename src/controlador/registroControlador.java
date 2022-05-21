@@ -190,6 +190,7 @@ public class registroControlador implements Initializable {
                 FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
                 Parent root = (Parent) loaderLogin.load();
                 Stage stageLogin = new Stage();
+                stage.getIcons().add(new Image("resources/logo.ico"));
                 stageLogin.setTitle("SAILAPP");
                 stageLogin.initModality(Modality.APPLICATION_MODAL);
                 stageLogin.setScene(new Scene(root));

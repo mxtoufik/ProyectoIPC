@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -114,6 +115,7 @@ public class estadisticasControlador implements Initializable {
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);

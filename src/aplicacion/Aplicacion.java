@@ -40,26 +40,7 @@ public class Aplicacion extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("SAILAPP");
-        stage.getIcons().add(new Image("resources/Icono.png"));
-        
-        stage.setOnCloseRequest((new EventHandler<WindowEvent>(){
-
-        @Override
-        public void handle(WindowEvent arg0) {
-                            arg0.consume();
-            try
-            {
-             System.out.println("Hola");
-             Platform.exit();
-
-                            }
-            catch(Exception ex)
-            {
-                System.out.print(ex.getMessage()+"\r\n");
-            }
-
-        }
-    }));
+        stage.getIcons().add(new Image("resources/Icono.ico"));
 
         stage.show();
     }

@@ -33,6 +33,7 @@ import model.Navegacion;
 import model.Problem;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
 import javafx.stage.Stage;
@@ -47,13 +48,8 @@ import model.User;
  */
 public class PreguntasController implements Initializable {
 
-    private Stage stage;
-    @FXML
-    private Text mensaje_usuario;
     @FXML
     private Button botonSalir;
-    @FXML
-    private AnchorPane pantalla;
     @FXML
     private Text pregunta;
     @FXML
@@ -153,7 +149,7 @@ public class PreguntasController implements Initializable {
 
             ElegirPreguntaContolador controlador = fxmlLoader.getController();
             controlador.getUser(usuario);
-
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root6));
@@ -318,6 +314,7 @@ public class PreguntasController implements Initializable {
             Scene scene = new Scene(root1);
 
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);

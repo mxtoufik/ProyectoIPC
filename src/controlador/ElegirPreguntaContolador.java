@@ -169,7 +169,7 @@ public class ElegirPreguntaContolador implements Initializable {
 
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Preguntas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/res.fxml"));
             Parent root6 = (Parent) fxmlLoader.load();
 
             PreguntasController controlador = fxmlLoader.getController();
@@ -179,6 +179,7 @@ public class ElegirPreguntaContolador implements Initializable {
             controlador.showPregunta();
 
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root6));
@@ -223,11 +224,12 @@ public class ElegirPreguntaContolador implements Initializable {
                     Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
                     usuario.addSession(sesion);
                     PreguntasController.setCero();
-                    FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/vista/login.fxml"));
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/vista/loginRed.fxml"));
                     Parent root2 = (Parent) fxmlLoader2.load();
                     Scene scene2 = new Scene(root2);
 
                     Stage stage2 = new Stage();
+                    stage.getIcons().add(new Image("resources/logo.ico"));
                     stage2.setTitle("SAILAPP");
                     stage2.setScene(scene2);
                     stage2.show();
@@ -248,7 +250,7 @@ public class ElegirPreguntaContolador implements Initializable {
     private void irALaPregunta(ActionEvent event, int i) throws NavegacionDAOException {
         try {
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/Preguntas.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/res.fxml"));
             Parent root7 = (Parent) fxmlLoader.load();
 
             PreguntasController controlador = fxmlLoader.getController();
@@ -257,7 +259,7 @@ public class ElegirPreguntaContolador implements Initializable {
             controlador.getUser(usuario);
 
             Stage stage = new Stage();
-
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root7));

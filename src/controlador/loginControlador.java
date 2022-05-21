@@ -70,7 +70,7 @@ public class loginControlador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image imagenBarco = new Image("/resources/logo.png");
+        Image imagenBarco = new Image("/resources/logos.png");
         barcoImag.setImage(imagenBarco);
         base = Aplicacion.base;
     }
@@ -94,7 +94,7 @@ public class loginControlador implements Initializable {
 
                     Stage stageLogin = new Stage();
                     stageLogin.setTitle("SAILAPP");
-                    stageLogin.initModality(Modality.APPLICATION_MODAL);
+                    stageLogin.getIcons().add(new Image("resources/logo.ico"));
                     stageLogin.setScene(new Scene(root));
 
                     stageLogin.setOnCloseRequest((new EventHandler<WindowEvent>() {
@@ -137,6 +137,7 @@ public class loginControlador implements Initializable {
             FXMLLoader loaderReg = new FXMLLoader(getClass().getResource("/vista/registroRed.fxml"));
             Parent rootReg = (Parent) loaderReg.load();
             Stage stageReg = new Stage();
+            stageReg.getIcons().add(new Image("resources/logo.ico"));
             stageReg.setTitle("SAILAPP");
             stageReg.initModality(Modality.APPLICATION_MODAL);
             stageReg.setScene(new Scene(rootReg));

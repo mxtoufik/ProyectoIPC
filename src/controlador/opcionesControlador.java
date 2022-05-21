@@ -79,7 +79,7 @@ public class opcionesControlador implements Initializable {
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
-
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("Editar Perfil del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -107,6 +107,7 @@ public class opcionesControlador implements Initializable {
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("Ver estadísticas del Usuario");
             stage.initModality(Modality.APPLICATION_MODAL);
 

@@ -30,6 +30,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -115,6 +116,7 @@ public class editarPerfilControlador2 implements Initializable {
             Scene scene = new Scene(root1);
             scene.setFill(Color.TRANSPARENT);
             Stage stage = new Stage();
+            stage.getIcons().add(new Image("resources/logo.ico"));
             stage.setTitle("SAILAPP");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
@@ -171,6 +173,7 @@ public class editarPerfilControlador2 implements Initializable {
                             Scene scene = new Scene(root1);
                             scene.setFill(Color.TRANSPARENT);
                             Stage stage = new Stage();
+                            stage.getIcons().add(new Image("resources/logo.ico"));
                             stage.setTitle("SAILAPP");
                             stage.initModality(Modality.APPLICATION_MODAL);
                             stage.setScene(scene);
@@ -190,6 +193,7 @@ public class editarPerfilControlador2 implements Initializable {
                             Scene scene2 = new Scene(root);
                             scene2.setFill(Color.TRANSPARENT);
                             Stage stage2 = new Stage();
+                            stage.getIcons().add(new Image("resources/logo.ico"));
                             stage2.setTitle("SAILAPP");
                             stage2.initModality(Modality.APPLICATION_MODAL);
                             stage2.setScene(scene2);
