@@ -34,7 +34,6 @@ import model.User;
  */
 public class guardarSeguro implements Initializable {
 
-    @FXML
     private String usuarioCorreo;
     private LocalDate fecha;
     private String nuevaContra;
